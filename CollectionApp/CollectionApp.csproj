@@ -22,6 +22,10 @@
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Areas\Identity\Pages\Account" />
+    </ItemGroup>
+
     <Target Name="PrePublishTarget" AfterTargets="Publish">
         <Exec Command="dotnet ef database update" />
     </Target>
