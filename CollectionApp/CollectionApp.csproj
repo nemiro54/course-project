@@ -26,6 +26,7 @@
 
     <ItemGroup>
       <Folder Include="Areas\Identity\Pages\Account" />
+      <Folder Include="Views\Account" />
     </ItemGroup>
 
     <Target Name="PrePublishTarget" AfterTargets="Publish">
