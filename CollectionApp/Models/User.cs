@@ -5,4 +5,5 @@ namespace CollectionApp.Models;
 
 public class User : IdentityUser
 {
+    
 }
