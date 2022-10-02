@@ -5,5 +5,7 @@ namespace CollectionApp.Models;
 
 public class User : IdentityUser
 {
-    
+    public User() : base()
+    {
+    }
 }

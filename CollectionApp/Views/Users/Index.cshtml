@@ -1,0 +1,19 @@
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+@{
+    ViewBag.Title = "List of Users";
+}
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Email</th>
+        <th></th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.Email</td>
+        </tr>
+    }
+</table>
