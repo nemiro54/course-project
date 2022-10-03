@@ -5,15 +5,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CollectionApp.Controllers;
 
+[Authorize(Roles = "Admin")]
 public class UsersController : Controller
 {
-    private readonly UserManager<IdentityUser> _userManager;
+    private readonly UserManager<User> _userManager;
     
-    public UsersController(UserManager<IdentityUser> userManager)
+    public UsersController(UserManager<User> userManager)
     {
         _userManager = userManager;
     }
  
-    [Authorize(Roles = "Admin")]
     public IActionResult Index() => View(_userManager.Users.ToList());
 }
