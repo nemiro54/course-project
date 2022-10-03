@@ -1,11 +1,8 @@
-using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
 namespace CollectionApp.Models;
 
 public class User : IdentityUser
 {
-    public User() : base()
-    {
-    }
+    public List<Collection> Collections { get; set; }
 }
