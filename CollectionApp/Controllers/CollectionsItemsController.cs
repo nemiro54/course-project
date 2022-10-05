@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CollectionApp.Controllers;
 
-public class CollectionsController : Controller
+public class CollectionsItemsController : Controller
 {
     public async Task<IActionResult> Index(string[] selectedUsers)
     {

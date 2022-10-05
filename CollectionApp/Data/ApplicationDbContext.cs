@@ -6,6 +6,7 @@ namespace CollectionApp.Data;
 
 public class ApplicationDbContext : IdentityDbContext<User>
 {
+    private DbSet<CollectionItems> CollectionItems { get; set; }
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {

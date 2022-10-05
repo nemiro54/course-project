@@ -4,5 +4,5 @@ namespace CollectionApp.Models;
 
 public class User : IdentityUser
 {
-    public List<Collection> Collections { get; set; }
+    public List<CollectionItems> CollectionsItems { get; set; }
 }
