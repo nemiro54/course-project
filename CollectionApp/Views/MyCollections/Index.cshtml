@@ -1,5 +1,6 @@
-<h2>User : @ViewBag.User.UserName</h2>
-
+<div class="text-center">
+    <h1 class="display-4">User: @ViewBag.User.UserName</h1>
+</div>
 <form id="form1">
     <a class="btn btn-outline-primary m-1" asp-controller="MyCollections" asp-action="Create" asp-route-userid="@ViewBag.User.Id">Create Collection</a>
     <a class="btn btn-outline-primary m-1" asp-controller="MyCollections" asp-action="Delete" asp-route-userid="@ViewBag.User.Id">Delete Collection</a>
@@ -13,9 +14,9 @@
                 <input type="checkbox" name="cb_all">
             </th>
         </tr>
-        @if (Model.MyCollections != null)
+        @if (Model != null)
         {
-            @foreach (var collection in Model.MyCollections)
+            @foreach (var collection in Model)
             {
                 <tr>
                     <td>
