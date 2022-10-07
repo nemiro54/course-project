@@ -17,7 +17,7 @@
             <td>@user.Id</td>
             <td>@user.Email</td>
             <td>
-                <a asp-controller="PersonalAccount" asp-action="Index" asp-route-userid="@user.Id">View Collections</a>
+                <a asp-controller="MyCollections" asp-action="Index" asp-route-userid="@user.Id">View Collections</a>
             </td>
             <td>
                 <a class="btn btn-sm btn-outline-primary text-center" asp-controller="Roles" asp-action="Edit" asp-route-userid="@user.Id">Edit Role</a>
