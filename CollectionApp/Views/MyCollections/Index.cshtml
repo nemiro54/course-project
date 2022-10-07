@@ -1,29 +1,27 @@
-<h2>User : @Model.UserName</h2>
+<h2>User : @ViewBag.User.UserName</h2>
 
 <form id="form1">
-    <a class="btn btn-outline-primary m-1" asp-controller="CollectionsItems" asp-action="Create" asp-route-userid="@Model.Id">Create Collection</a>
-    <a class="btn btn-outline-primary m-1" asp-controller="CollectionsItems" asp-action="Delete">Delete Collection</a>
+    <a class="btn btn-outline-primary m-1" asp-controller="MyCollections" asp-action="Create" asp-route-userid="@ViewBag.User.Id">Create Collection</a>
+    <a class="btn btn-outline-primary m-1" asp-controller="MyCollections" asp-action="Delete" asp-route-userid="@ViewBag.User.Id">Delete Collection</a>
     <br/>
     <table class="table table-striped table-hover">
         <tr>
             <th>Name</th>
             <th>Theme</th>
-            <th>Number of Items</th>
             <th>Summary</th>
             <th>
                 <input type="checkbox" name="cb_all">
             </th>
         </tr>
-        @if (Model.CollectionsItems != null)
+        @if (Model.MyCollections != null)
         {
-            @foreach (var collection in Model.CollectionsItems)
+            @foreach (var collection in Model.MyCollections)
             {
                 <tr>
                     <td>
-                        <a asp-controller="CollectionsItems" asp-action="Index" asp-route-userid="@Model.Id">@collection.Name</a>@collection.Name
+                        <a asp-controller="Items" asp-action="Index" asp-route-userid="@ViewBag.User.Id">@collection.Name</a>
                     </td>
                     <td>@collection.Theme</td>
-                    <td>@collection.Items.Count</td>
                     <td>@collection.Summary</td>
                     <td>
                         <input type="checkbox" class="qwe" name="selectedUsers" value=""/>

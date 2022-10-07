@@ -3,11 +3,16 @@ using Microsoft.VisualBasic;
 
 namespace CollectionApp.Models;
 
-public class CollectionItems
+public class MyCollection
 {
-    public string Id { get; set; }
+    public Guid Id { get; set; }
     public string Name { get; set; }
     public string Summary { get; set; }
     public string Theme { get; set; }
     public string UrlImg { get; set; }
+    
+    public string UserId { get; set; }
+    public User UserOwner { get; set; }
+    
+    public List<Item> Items { get; set; }
 }

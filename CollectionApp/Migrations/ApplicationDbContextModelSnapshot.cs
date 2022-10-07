@@ -22,10 +22,31 @@ namespace CollectionApp.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CollectionApp.Models.CollectionItems", b =>
+            modelBuilder.Entity("CollectionApp.Models.Item", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("MyCollectionId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MyCollectionId");
+
+                    b.ToTable("Items");
+                });
+
+            modelBuilder.Entity("CollectionApp.Models.MyCollection", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -44,13 +65,14 @@ namespace CollectionApp.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("CollectionItems");
+                    b.ToTable("MyCollections");
                 });
 
             modelBuilder.Entity("CollectionApp.Models.User", b =>
@@ -253,11 +275,26 @@ namespace CollectionApp.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("CollectionApp.Models.CollectionItems", b =>
+            modelBuilder.Entity("CollectionApp.Models.Item", b =>
                 {
-                    b.HasOne("CollectionApp.Models.User", null)
-                        .WithMany("CollectionsItemsList")
-                        .HasForeignKey("UserId");
+                    b.HasOne("CollectionApp.Models.MyCollection", "MyCollection")
+                        .WithMany("Items")
+                        .HasForeignKey("MyCollectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MyCollection");
+                });
+
+            modelBuilder.Entity("CollectionApp.Models.MyCollection", b =>
+                {
+                    b.HasOne("CollectionApp.Models.User", "UserOwner")
+                        .WithMany("MyCollections")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserOwner");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -311,9 +348,14 @@ namespace CollectionApp.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("CollectionApp.Models.MyCollection", b =>
+                {
+                    b.Navigation("Items");
+                });
+
             modelBuilder.Entity("CollectionApp.Models.User", b =>
                 {
-                    b.Navigation("CollectionsItemsList");
+                    b.Navigation("MyCollections");
                 });
 #pragma warning restore 612, 618
         }
