@@ -60,9 +60,16 @@ public class MyCollectionsController : Controller
         return View(model);
     }
 
-    public async Task<IActionResult> Delete(string userId)
+    public async Task<IActionResult> Delete(Guid[] selectedCollections)
     {
-        User user = await _userManager.FindByIdAsync(userId);
-        return View(user);
+        var userId = (await _context.MyCollections.FindAsync(selectedCollections[0]))!.UserId;
+        foreach (var id in selectedCollections)
+        {
+            var collection = await _context.MyCollections.FindAsync(id);
+            if (collection != null) _context.MyCollections.Remove(collection);
+            await _context.SaveChangesAsync();
+        }
+
+        return RedirectToAction("Index", "MyCollections", new { userId });
     }
 }
