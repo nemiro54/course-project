@@ -66,7 +66,10 @@ public class MyCollectionsController : Controller
         foreach (var id in selectedCollections)
         {
             var collection = await _context.MyCollections.FindAsync(id);
-            if (collection != null) _context.MyCollections.Remove(collection);
+            if (collection != null)
+            {
+                _context.MyCollections.Remove(collection);
+            }
             await _context.SaveChangesAsync();
         }
 

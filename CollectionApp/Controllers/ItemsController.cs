@@ -17,11 +17,16 @@ public class ItemsController : Controller
         _signInManager = signInManager;
         _context = context;
     }
-    
-    public async Task<ActionResult> Index(string userId)
+
+    [HttpGet]
+    public async Task<ActionResult> Index(Guid collectionId)
     {
-        User user = await _userManager.FindByIdAsync(userId);
-        ViewBag.User = user;
-        return View();
+        var collection = await _context.MyCollections.FindAsync(collectionId);
+        if (collection != null)
+        {
+            ViewBag.MyCollection = collection;
+        }
+        var items = _context.Items.Where(p => p.MyCollection.Id.Equals(collectionId)).ToList();
+        return View(items);
     }
 }
