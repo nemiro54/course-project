@@ -21,14 +21,17 @@ public class MyCollectionsController : Controller
         _signInManager = signInManager;
         _context = context;
     }
-
+    
     [HttpGet]
-    public async Task<ActionResult> Index(string userId)
+    public async Task<ActionResult> Index(Guid collectionId)
     {
-        var user = await _userManager.FindByIdAsync(userId);
-        var collections = _context.MyCollections.Where(c => c.UserId.Equals(user.Id)).ToList();
-        ViewBag.User = user;
-        return View(collections);
+        var collection = await _context.MyCollections.FindAsync(collectionId);
+        if (collection != null)
+        {
+            ViewBag.MyCollection = collection;
+        }
+        var items = _context.Items.Where(p => p.MyCollection.Id.Equals(collectionId)).ToList();
+        return View(items);
     }
 
     public IActionResult Create(string userId)
@@ -48,13 +51,12 @@ public class MyCollectionsController : Controller
                 Name = model.Name,
                 Theme = model.Theme,
                 Summary = model.Summary,
-                UrlImg = model.UrlImg,
                 UserOwner = user,
                 UserId = user.Id
             };
             _context.MyCollections.Add(collection);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "MyCollections", new { userId });
+            return RedirectToAction("Index", "PersonalAccount", new { userId });
         }
 
         return View(model);
@@ -73,6 +75,6 @@ public class MyCollectionsController : Controller
             await _context.SaveChangesAsync();
         }
 
-        return RedirectToAction("Index", "MyCollections", new { userId });
+        return RedirectToAction("Index", "PersonalAccount", new { userId });
     }
 }

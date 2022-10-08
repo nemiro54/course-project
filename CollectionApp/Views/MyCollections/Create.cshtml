@@ -1,3 +1,5 @@
+@model CollectionApp.ViewModels.CreateMyCollectionViewModel
+
 @{
     ViewData["Title"] = "Create Page";
 }
@@ -6,7 +8,6 @@
     <h1 class="display-4">Create New Collection Page</h1>
 </div>
 
-@model CollectionApp.ViewModels.CreateMyCollectionViewModel
 <form method="post" asp-controller="MyCollections" asp-action="Create" asp-route-userId="@ViewBag.Id">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
@@ -25,11 +26,6 @@
         <span asp-validation-for="Summary"></span>
     </div>
     <div>
-        <label asp-for="UrlImg"></label><br/>
-        <input asp-for="UrlImg"/>
-        <span asp-validation-for="UrlImg"></span>
-    </div>
-    <div>
-        <button type="submit" class="btn btn-primary mt-1">Create</button>
+        <button type="submit" class="btn btn-outline-primary mt-1">Create</button>
     </div>
 </form>
