@@ -1,7 +1,7 @@
 <div class="text-center">
     <h1 class="display-4">User: @ViewBag.User.UserName</h1>
 </div>
-<form id="form1">
+<form id="formCollection">
     <a class="btn btn-outline-primary m-1" asp-controller="MyCollections" asp-action="Create" asp-route-userid="@ViewBag.User.Id">Create Collection</a>
     <button type="submit" class="btn btn-outline-primary m-1" asp-controller="MyCollections" asp-action="Delete">Delete Collection</button>
     <br/>
@@ -34,7 +34,7 @@
 </form>
 
 <script>
-    var f = document.getElementById('form1');
+    var f = document.getElementById('formCollection');
     f.cb_all.onchange = function (e) {
         var el = e.target || e.srcElement;
         var qwe = el.form.getElementsByClassName("collection");

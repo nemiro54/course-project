@@ -21,16 +21,10 @@ public class ItemsController : Controller
     }
 
     [HttpGet]
-    public async Task<ActionResult> Index(Guid collectionId)
+    public async Task<ActionResult> Index(Guid itemId)
     {
-        var collection = await _context.MyCollections.FindAsync(collectionId);
-        if (collection != null)
-        {
-            ViewBag.MyCollection = collection;
-            ViewBag.User = collection.UserOwner;
-        }
-        var items = _context.Items.Where(p => p.MyCollection.Id.Equals(collectionId)).ToList();
-        return View(items);
+        var item = await _context.Items.FindAsync(itemId);
+        return View(item);
     }
 
     public IActionResult Create(string collectionId)
@@ -40,14 +34,19 @@ public class ItemsController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(ItemCreateViewModel model, string collectionId)
+    public async Task<IActionResult> Create(ItemCreateViewModel model, Guid collectionId)
     {
         if (ModelState.IsValid)
         {
-            var item = new Item { Name = model.Name };
+            var item = new Item
+            {
+                Name = model.Name,
+                MyCollection = (await _context.MyCollections.FindAsync(collectionId))!,
+                MyCollectionId = collectionId
+            };
             _context.Items.Add(item);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "Items", new { collectionId });
+            return RedirectToAction("Index", "MyCollections", new { collectionId });
         }
 
         return View(model);
@@ -55,7 +54,7 @@ public class ItemsController : Controller
 
     public async Task<IActionResult> Delete(Guid[] selectedItems)
     {
-        var collectionId = (await _context.Items.FindAsync(selectedItems[0]))!.MyCollection.Id;
+        var collectionId = (await _context.Items.FindAsync(selectedItems[0]))!.MyCollectionId;
         foreach (var id in selectedItems)
         {
             var item = await _context.Items.FindAsync(id);
@@ -63,9 +62,10 @@ public class ItemsController : Controller
             {
                 _context.Items.Remove(item);
             }
+
             await _context.SaveChangesAsync();
         }
 
-        return RedirectToAction("Index", "Items", new { collectionId });
+        return RedirectToAction("Index", "MyCollections", new { collectionId });
     }
 }
