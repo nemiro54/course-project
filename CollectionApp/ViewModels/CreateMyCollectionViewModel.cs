@@ -10,6 +10,4 @@ public class CreateMyCollectionViewModel
     public string Summary { get; set; }
     [Required]
     public string Theme { get; set; }
-    [Required]
-    public string UrlImg { get; set; }
 }

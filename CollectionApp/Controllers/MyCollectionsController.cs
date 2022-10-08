@@ -14,30 +14,67 @@ public class MyCollectionsController : Controller
     private readonly SignInManager<User> _signInManager;
     private readonly ApplicationDbContext _context;
 
-    public MyCollectionsController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationDbContext context)
+    public MyCollectionsController(UserManager<User> userManager, SignInManager<User> signInManager,
+        ApplicationDbContext context)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _context = context;
     }
     
-    public async Task<ActionResult> Index(string userId)
+    [HttpGet]
+    public async Task<ActionResult> Index(Guid collectionId)
     {
-        User user = await _userManager.FindByIdAsync(userId);
-        ViewBag.User = user;
-        return View(user);
+        var collection = await _context.MyCollections.FindAsync(collectionId);
+        if (collection != null)
+        {
+            ViewBag.MyCollection = collection;
+        }
+        var items = _context.Items.Where(p => p.MyCollection.Id.Equals(collectionId)).ToList();
+        return View(items);
     }
 
-    public async Task<IActionResult> Create(string userId)
+    public IActionResult Create(string userId)
     {
         ViewBag.Id = userId;
-        var user = await _userManager.FindByIdAsync(userId);
-        return View(user);
+        return View();
     }
 
-    public async Task<IActionResult> Delete(string userId)
+    [HttpPost]
+    public async Task<IActionResult> Create(CreateMyCollectionViewModel model, string userId)
     {
-        User user = await _userManager.FindByIdAsync(userId);
-        return View(user);
+        if (ModelState.IsValid)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            MyCollection collection = new MyCollection
+            {
+                Name = model.Name,
+                Theme = model.Theme,
+                Summary = model.Summary,
+                UserOwner = user,
+                UserId = user.Id
+            };
+            _context.MyCollections.Add(collection);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "PersonalAccount", new { userId });
+        }
+
+        return View(model);
+    }
+
+    public async Task<IActionResult> Delete(Guid[] selectedCollections)
+    {
+        var userId = (await _context.MyCollections.FindAsync(selectedCollections[0]))!.UserId;
+        foreach (var id in selectedCollections)
+        {
+            var collection = await _context.MyCollections.FindAsync(id);
+            if (collection != null)
+            {
+                _context.MyCollections.Remove(collection);
+            }
+            await _context.SaveChangesAsync();
+        }
+
+        return RedirectToAction("Index", "PersonalAccount", new { userId });
     }
 }

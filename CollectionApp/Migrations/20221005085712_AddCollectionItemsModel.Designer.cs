@@ -3,6 +3,7 @@ using System;
 using CollectionApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CollectionApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221005085712_AddCollectionItemsModel")]
+    partial class AddCollectionItemsModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,31 +24,10 @@ namespace CollectionApp.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CollectionApp.Models.Item", b =>
+            modelBuilder.Entity("CollectionApp.Models.CollectionItems", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("MyCollectionId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
+                    b.Property<string>("Id")
                         .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MyCollectionId");
-
-                    b.ToTable("Items");
-                });
-
-            modelBuilder.Entity("CollectionApp.Models.MyCollection", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -60,15 +41,18 @@ namespace CollectionApp.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("UrlImg")
                         .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserId")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("MyCollections");
+                    b.ToTable("CollectionItems");
                 });
 
             modelBuilder.Entity("CollectionApp.Models.User", b =>
@@ -271,26 +255,11 @@ namespace CollectionApp.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("CollectionApp.Models.Item", b =>
+            modelBuilder.Entity("CollectionApp.Models.CollectionItems", b =>
                 {
-                    b.HasOne("CollectionApp.Models.MyCollection", "MyCollection")
-                        .WithMany("Items")
-                        .HasForeignKey("MyCollectionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MyCollection");
-                });
-
-            modelBuilder.Entity("CollectionApp.Models.MyCollection", b =>
-                {
-                    b.HasOne("CollectionApp.Models.User", "UserOwner")
-                        .WithMany("MyCollections")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserOwner");
+                    b.HasOne("CollectionApp.Models.User", null)
+                        .WithMany("CollectionsItemsList")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -344,14 +313,9 @@ namespace CollectionApp.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CollectionApp.Models.MyCollection", b =>
-                {
-                    b.Navigation("Items");
-                });
-
             modelBuilder.Entity("CollectionApp.Models.User", b =>
                 {
-                    b.Navigation("MyCollections");
+                    b.Navigation("CollectionsItemsList");
                 });
 #pragma warning restore 612, 618
         }

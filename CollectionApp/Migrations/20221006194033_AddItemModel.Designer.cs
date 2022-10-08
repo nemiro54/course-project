@@ -3,6 +3,7 @@ using System;
 using CollectionApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CollectionApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221006194033_AddItemModel")]
+    partial class AddItemModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,7 +30,11 @@ namespace CollectionApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("MyCollectionId")
+                    b.Property<string>("MyCollectionId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("MyCollectionId1")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
@@ -37,9 +43,9 @@ namespace CollectionApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MyCollectionId");
+                    b.HasIndex("MyCollectionId1");
 
-                    b.ToTable("Items");
+                    b.ToTable("Item");
                 });
 
             modelBuilder.Entity("CollectionApp.Models.MyCollection", b =>
@@ -57,6 +63,10 @@ namespace CollectionApp.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Theme")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UrlImg")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -275,7 +285,7 @@ namespace CollectionApp.Migrations
                 {
                     b.HasOne("CollectionApp.Models.MyCollection", "MyCollection")
                         .WithMany("Items")
-                        .HasForeignKey("MyCollectionId")
+                        .HasForeignKey("MyCollectionId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
