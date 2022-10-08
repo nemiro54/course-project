@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/CollectionApp.styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="css/darkMode.css"/>
 </head>
 <body>
 <header>
@@ -27,6 +28,10 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
                 </ul>
+                <div class="form-check form-switch">
+                    <input type="checkbox" class="form-check-input" id="darkMode"/>
+                    <label for="darkMode" class="form-check-label">Dark Mode</label>
+                </div>
                 <partial name="_LoginPartial"/>
             </div>
         </div>
@@ -46,6 +51,8 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
+<script src="js/darkMode.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
