@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element name="data" maxOccurs="unbounded" minOccurs="0">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="key">
+                  <xsd:complexType>
+                    <xsd:simpleContent>
+                      <xsd:extension base="xsd:string">
+                        <xsd:attribute type="xsd:string" name="isActive" use="optional" />
+                      </xsd:extension>
+                    </xsd:simpleContent>
+                  </xsd:complexType>
+                </xsd:element>
+                <xsd:element type="xsd:string" name="value" />
+                <xsd:element type="xsd:string" name="comment" />
+              </xsd:sequence>
+              <xsd:attribute type="xsd:string" name="isActive" use="optional" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <data isActive="false">
+    <key>Home Page - CollectionApp</key>
+    <value>Галоўная старонка - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Users</key>
+    <value>Карыстальнікі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Roles</key>
+    <value>Ролі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Home</key>
+    <value>Дамоў</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Privacy</key>
+    <value>Канфідэнцыяльнасць</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Dark Mode</key>
+    <value>Цёмны рэжым</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>The {0} field is required.</key>
+    <value>Поле &lt;ph id="mtc_1" equiv-text="base64:JXM="/&gt; патрабуецца.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>The {0} field is not a valid e-mail address.</key>
+    <value>Поле {0} не з&amp;#39;яўляецца сапраўдным адрасам электроннай пошты.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Remember me?</key>
+    <value>Запомніць мяне</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Log in - CollectionApp</key>
+    <value>Увайдзіце ў сістэму - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>List of Users - CollectionApp</key>
+    <value>Спіс карыстальнікаў - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>- CollectionApp</key>
+    <value>- CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Privacy Policy - CollectionApp</key>
+    <value>Палітыка прыватнасці - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Phone number</key>
+    <value>Нумар тэлефона</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>The {0} field is not a valid phone number.</key>
+    <value>Поле {0} не з&amp;#39;яўляецца сапраўдным нумарам тэлефона.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Profile - CollectionApp</key>
+    <value>Профіль - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+</root>
