@@ -396,12 +396,102 @@
   </data>
   <data isActive="false">
     <key>Manage Email - CollectionApp</key>
-    <value>Manage Email - CollectionApp</value>
+    <value>Кіраванне эл. поштай - CollectionApp</value>
     <comment>Created by XLocalizer</comment>
   </data>
   <data isActive="false">
     <key>Username</key>
     <value>Імя карыстальніка</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Manage your account</key>
+    <value>Кіраваць уліковым запісам</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change your account settings</key>
+    <value>Змяніце наладкі свайго ўліковага запісу</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Create Collection</key>
+    <value>Стварыць калекцыю</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Delete Collection</key>
+    <value>Выдаліць калекцыю</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Name</key>
+    <value>Імя</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Theme</key>
+    <value>Тэма</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Summary</key>
+    <value>Апісанне</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Page for creating a new collection</key>
+    <value>Старонка стварэння новай калекцыі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Create</key>
+    <value>Стварыць</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New Item - CollectionApp</key>
+    <value>Новы элемент</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Create Item</key>
+    <value>Стварыць элемент</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Delete Item</key>
+    <value>Выдаліць элемент</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Tags</key>
+    <value>Тэгі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Collection Page - CollectionApp</key>
+    <value>Старонка калекцыі - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Item Page - CollectionApp</key>
+    <value>Старонка прадмета - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Collections Page - CollectionApp</key>
+    <value>Старонка калекцый - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Page for create a new Item</key>
+    <value>Старонка для стварэння новага элемента</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New collection - CollectionApp</key>
+    <value>Новая калекцыя</value>
     <comment>Created by XLocalizer</comment>
   </data>
 </root>

@@ -7,13 +7,13 @@
 </div>
 
 <form id='formItems' method="post">
-    <a class="btn btn-outline-primary m-1" asp-controller="Items" asp-action="Create" asp-route-collectionId="@ViewBag.MyCollection.Id">Create Item</a>
-    <button type="submit" class="btn btn-outline-primary m-1" asp-controller="Items" asp-action="Delete">Delete Item</button>
+    <a class="btn btn-outline-primary m-1" asp-controller="Items" asp-action="Create" asp-route-collectionId="@ViewBag.MyCollection.Id" localize-content>Create Item</a>
+    <button type="submit" class="btn btn-outline-primary m-1" asp-controller="Items" asp-action="Delete" localize-content>Delete Item</button>
     <table class="table table-striped table-hover">
         <tr>
-            <th>Name</th>
-            <th>Summary</th>
-            <th>Tags</th>
+            <th localize-content>Name</th>
+            <th localize-content>Summary</th>
+            <th localize-content>Tags</th>
             <th>
                 <input type="checkbox" name="cb_all">
             </th>

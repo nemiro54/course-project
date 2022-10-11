@@ -267,4 +267,209 @@
     <value>Błąd - CollectionApp</value>
     <comment>Created by XLocalizer</comment>
   </data>
+  <data isActive="false">
+    <key>Profile</key>
+    <value>Profil</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Username</key>
+    <value>Nazwa użytkownika</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Manage your account</key>
+    <value>Zarządzaj kontem</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change your account settings</key>
+    <value>Zmień ustawienia konta</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Manage Email</key>
+    <value>Zarządzaj pocztą e-mail</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Send verification email</key>
+    <value>Wyślij email weryfikacyjny</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New email</key>
+    <value>Nowy e-mail</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change email</key>
+    <value>Zmień adres e-mail</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Manage Email - CollectionApp</key>
+    <value>Zarządzaj pocztą e-mail - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change password</key>
+    <value>Zmień hasło</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Current password</key>
+    <value>Aktualne hasło</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New password</key>
+    <value>Nowe hasło</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Confirm new password</key>
+    <value>Potwierdź nowe hasło</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Update password</key>
+    <value>Aktualizować hasło</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change password - CollectionApp</key>
+    <value>Zmień hasło - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Two-factor authentication (2FA)</key>
+    <value>Uwierzytelnianie dwuskładnikowe (2FA)</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Authenticator app</key>
+    <value>Aplikacja Authenticator</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Add authenticator app</key>
+    <value>Dodaj aplikację uwierzytelniającą</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Two-factor authentication (2FA) - CollectionApp</key>
+    <value>Uwierzytelnianie dwuskładnikowe (2FA) - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Personal Data</key>
+    <value>Dane osobiste</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Your account contains personal data that you have given us. This page allows you to download or delete that data.</key>
+    <value>Twoje konto zawiera dane osobowe, które nam przekazałeś. Ta strona umożliwia pobranie lub usunięcie tych danych.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>&lt;strong&gt;Deleting this data will permanently remove your account, and this cannot be recovered.&lt;/strong&gt;</key>
+    <value>&amp;lt;strong&amp;gt;Usunięcie tych danych spowoduje trwałe usunięcie Twojego konta i nie będzie można go odzyskać.&amp;lt;/strong&amp;gt;</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Download</key>
+    <value>Ściągnij</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Personal Data - CollectionApp</key>
+    <value>Dane osobiste - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Two-factor authentication</key>
+    <value>Uwierzytelnianie dwuskładnikowe</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Create Collection</key>
+    <value>Utwórz kolekcję</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Delete Collection</key>
+    <value>Usuń kolekcję</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Name</key>
+    <value>Nazwa</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Theme</key>
+    <value>Motyw</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Summary</key>
+    <value>Streszczenie</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Collections Page - CollectionApp</key>
+    <value>Strona kolekcji - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Page for creating a new collection</key>
+    <value>Strona do tworzenia nowej kolekcji</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Create</key>
+    <value>Utwórz</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New Collection - CollectionApp</key>
+    <value>Nowa kolekcja - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Create Item</key>
+    <value>Utwórz przedmiot</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Delete Item</key>
+    <value>Usuń przedmiot</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Tags</key>
+    <value>Tagi</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Collection Page - CollectionApp</key>
+    <value>Strona kolekcji - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Item Page - CollectionApp</key>
+    <value>Strona przedmiotu - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Page for create a new Item</key>
+    <value>Strona do tworzenia nowego przedmiotu</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New Item - CollectionApp</key>
+    <value>Nowy przedmiot - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
 </root>
