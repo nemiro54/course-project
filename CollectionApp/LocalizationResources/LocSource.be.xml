@@ -289,4 +289,119 @@
     <value>Змяніць ролю для:</value>
     <comment>Created by XLocalizer</comment>
   </data>
+  <data isActive="false">
+    <key>Profile</key>
+    <value>Профіль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Two-factor authentication</key>
+    <value>Двухфакторную аўтэнтыфікацыя</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Personal data</key>
+    <value>Асабістыя дадзеныя</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Manage Email</key>
+    <value>Кіраванне эл. поштай</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Send verification email</key>
+    <value>Адправіць код пацверджання</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New email</key>
+    <value>Новая эл. пошта</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change email</key>
+    <value>Змяніць эл. пошту</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change password</key>
+    <value>Змяніць пароль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Current password</key>
+    <value>Актуальны пароль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New password</key>
+    <value>Новы пароль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Confirm new password</key>
+    <value>Пацьвердзіць новы пароль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Update password</key>
+    <value>Абнавіць пароль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change password - CollectionApp</key>
+    <value>Змена пароля</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Two-factor authentication (2FA)</key>
+    <value>Двухфактарная аўтэнтыфікацыя (2FA)</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Authenticator app</key>
+    <value>Праграма аўтэнтыфікацыі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Add authenticator app</key>
+    <value>Дадаць праграму аўтэнтыфікацыі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Two-factor authentication (2FA) - CollectionApp</key>
+    <value>Двухфактарная аўтэнтыфікацыя (2FA) - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Your account contains personal data that you have given us. This page allows you to download or delete that data.</key>
+    <value>Ваш уліковы запіс змяшчае асабістыя даныя, якія вы нам далі. Гэтая старонка дазваляе спампоўваць або выдаляць гэтыя даныя.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>&lt;strong&gt;Deleting this data will permanently remove your account, and this cannot be recovered.&lt;/strong&gt;</key>
+    <value>&lt;strong&gt;Выдаленне гэтых даных прывядзе да выдалення вашага ўліковага запісу назаўсёды, і аднавіць яго нельга.&lt;/strong&gt;</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Download</key>
+    <value>Спампаваць</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Personal Data - CollectionApp</key>
+    <value>Персанальныя дадзеныя</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Manage Email - CollectionApp</key>
+    <value>Manage Email - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Username</key>
+    <value>Імя карыстальніка</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
 </root>

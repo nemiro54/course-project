@@ -262,4 +262,9 @@
     <value>Profil - CollectionApp</value>
     <comment>Created by XLocalizer</comment>
   </data>
+  <data isActive="false">
+    <key>Error - CollectionApp</key>
+    <value>Błąd - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
 </root>
