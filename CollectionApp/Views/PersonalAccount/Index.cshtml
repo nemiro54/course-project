@@ -1,15 +1,19 @@
+@{
+    ViewData["Title"] = "Collections Page";
+}
+
 <div class="text-center">
-    <h1 class="display-4">User: @ViewBag.User.UserName</h1>
+    <h1 class="display-4">@ViewBag.User.UserName</h1>
 </div>
 <form id="formCollection">
-    <a class="btn btn-outline-primary m-1" asp-controller="MyCollections" asp-action="Create" asp-route-userid="@ViewBag.User.Id">Create Collection</a>
-    <button type="submit" class="btn btn-outline-primary m-1" asp-controller="MyCollections" asp-action="Delete">Delete Collection</button>
+    <a class="btn btn-outline-primary m-1" asp-controller="MyCollections" asp-action="Create" asp-route-userid="@ViewBag.User.Id" localize-content>Create Collection</a>
+    <button type="submit" class="btn btn-outline-primary m-1" asp-controller="MyCollections" asp-action="Delete" localize-content>Delete Collection</button>
     <br/>
     <table class="table table-striped table-hover">
         <tr>
-            <th>Name</th>
-            <th>Theme</th>
-            <th>Summary</th>
+            <th localize-content>Name</th>
+            <th localize-content>Theme</th>
+            <th localize-content>Summary</th>
             <th>
                 <input type="checkbox" name="cb_all">
             </th>

@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element name="data" maxOccurs="unbounded" minOccurs="0">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="key">
+                  <xsd:complexType>
+                    <xsd:simpleContent>
+                      <xsd:extension base="xsd:string">
+                        <xsd:attribute type="xsd:string" name="isActive" use="optional" />
+                      </xsd:extension>
+                    </xsd:simpleContent>
+                  </xsd:complexType>
+                </xsd:element>
+                <xsd:element type="xsd:string" name="value" />
+                <xsd:element type="xsd:string" name="comment" />
+              </xsd:sequence>
+              <xsd:attribute type="xsd:string" name="isActive" use="optional" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <data isActive="false">
+    <key>Home Page - CollectionApp</key>
+    <value>Галоўная старонка - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Users</key>
+    <value>Карыстальнікі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Roles</key>
+    <value>Ролі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Home</key>
+    <value>Дамоў</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Privacy</key>
+    <value>Канфідэнцыяльнасць</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Dark Mode</key>
+    <value>Цёмны рэжым</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>The {0} field is required.</key>
+    <value>Поле &lt;ph id="mtc_1" equiv-text="base64:JXM="/&gt; патрабуецца.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>The {0} field is not a valid e-mail address.</key>
+    <value>Поле {0} не з'яўляецца сапраўдным адрасам электроннай пошты.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Remember me?</key>
+    <value>Запомніць мяне</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Use a local account to log in.</key>
+    <value>Выкарыстоўвайце лакальны ўліковы запіс для ўваходу.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Log in - CollectionApp</key>
+    <value>Увайдзіце ў сістэму - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>List of Users - CollectionApp</key>
+    <value>Спіс карыстальнікаў - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>- CollectionApp</key>
+    <value>- CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Privacy Policy - CollectionApp</key>
+    <value>Палітыка прыватнасці - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Phone number</key>
+    <value>Нумар тэлефона</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>The {0} field is not a valid phone number.</key>
+    <value>Поле {0} не з&amp;#39;яўляецца сапраўдным нумарам тэлефона.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Profile - CollectionApp</key>
+    <value>Профіль - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Email</key>
+    <value>Эл. пошта</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Password</key>
+    <value>Пароль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>The field {0} must be a string with a minimum length of {2} and a maximum length of {1}.</key>
+    <value>Поле {0} павінна быць радком з мінімальнай даўжынёй {2} і максімальнай даўжынёй {1}.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Confirm password</key>
+    <value>Пацвердзіць пароль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>'{0}' and '{1}' do not match.</key>
+    <value>&amp;#39;{0}&amp;#39; і &amp;#39;{1}&amp;#39; не супадаюць.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Register - CollectionApp</key>
+    <value>Рэгістрацыя - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>'{0}' and '{1}' do not match. They should not be different!</key>
+    <value>&amp;#39;{0}&amp;#39; і &amp;#39;{1}&amp;#39; не супадаюць. Яны не павінны адрознівацца!</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Register</key>
+    <value>Зарэгістравацца</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Login</key>
+    <value>Увайсці</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Logout</key>
+    <value>Выйсці</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Error - CollectionApp</key>
+    <value>Памылка</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>MyAccount</key>
+    <value>Мой акаўнт</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>MyCollections</key>
+    <value>Мае калекцыі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>My Account</key>
+    <value>Мой акаўнт</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>My Collections</key>
+    <value>Мае калекцыі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Welcome</key>
+    <value>Вітаем</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Log in</key>
+    <value>Увайсці</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Forgot your password?</key>
+    <value>Забыліся свой пароль?</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Register as a new user</key>
+    <value>Зарэгістравацца як новы карыстальнік</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Resend email confirmation</key>
+    <value>Паўторна адправіць пацвярджэнне па электроннай пошце</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Use another service to log in.</key>
+    <value>Немагчыма ўвайсці ў сістэму.
+            Праверце адрас электроннай пошты і пароль.
+        </value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Create a new account.</key>
+    <value>Стварыць новы ўліковы запіс</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Id</key>
+    <value>Id</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Collections</key>
+    <value>Калекцыі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>View Collections</key>
+    <value>Прагляд калекцый</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Edit Role</key>
+    <value>Рэдагаваць</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Delete</key>
+    <value>Выдаліць</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Add Role</key>
+    <value>Дадаць ролю</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>List of Users</key>
+    <value>Спіс карыстальнікаў</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>List of Roles</key>
+    <value>Спіс роляў</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New Role</key>
+    <value>Новая роля</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Add</key>
+    <value>Дадаць</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Access Rights</key>
+    <value>Правы доступу</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Save</key>
+    <value>Захаваць</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change roles for:</key>
+    <value>Змяніць ролю для:</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Profile</key>
+    <value>Профіль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Two-factor authentication</key>
+    <value>Двухфакторную аўтэнтыфікацыя</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Personal data</key>
+    <value>Асабістыя дадзеныя</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Manage Email</key>
+    <value>Кіраванне эл. поштай</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Send verification email</key>
+    <value>Адправіць код пацверджання</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New email</key>
+    <value>Новая эл. пошта</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change email</key>
+    <value>Змяніць эл. пошту</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change password</key>
+    <value>Змяніць пароль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Current password</key>
+    <value>Актуальны пароль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New password</key>
+    <value>Новы пароль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Confirm new password</key>
+    <value>Пацьвердзіць новы пароль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Update password</key>
+    <value>Абнавіць пароль</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change password - CollectionApp</key>
+    <value>Змена пароля</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Two-factor authentication (2FA)</key>
+    <value>Двухфактарная аўтэнтыфікацыя (2FA)</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Authenticator app</key>
+    <value>Праграма аўтэнтыфікацыі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Add authenticator app</key>
+    <value>Дадаць праграму аўтэнтыфікацыі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Two-factor authentication (2FA) - CollectionApp</key>
+    <value>Двухфактарная аўтэнтыфікацыя (2FA) - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Your account contains personal data that you have given us. This page allows you to download or delete that data.</key>
+    <value>Ваш уліковы запіс змяшчае асабістыя даныя, якія вы нам далі. Гэтая старонка дазваляе спампоўваць або выдаляць гэтыя даныя.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>&lt;strong&gt;Deleting this data will permanently remove your account, and this cannot be recovered.&lt;/strong&gt;</key>
+    <value>&lt;strong&gt;Выдаленне гэтых даных прывядзе да выдалення вашага ўліковага запісу назаўсёды, і аднавіць яго нельга.&lt;/strong&gt;</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Download</key>
+    <value>Спампаваць</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Personal Data - CollectionApp</key>
+    <value>Персанальныя дадзеныя</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Manage Email - CollectionApp</key>
+    <value>Кіраванне эл. поштай - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Username</key>
+    <value>Імя карыстальніка</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Manage your account</key>
+    <value>Кіраваць уліковым запісам</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change your account settings</key>
+    <value>Змяніце наладкі свайго ўліковага запісу</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Create Collection</key>
+    <value>Стварыць калекцыю</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Delete Collection</key>
+    <value>Выдаліць калекцыю</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Name</key>
+    <value>Імя</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Theme</key>
+    <value>Тэма</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Summary</key>
+    <value>Апісанне</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Page for creating a new collection</key>
+    <value>Старонка стварэння новай калекцыі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Create</key>
+    <value>Стварыць</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New Item - CollectionApp</key>
+    <value>Новы элемент</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Create Item</key>
+    <value>Стварыць элемент</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Delete Item</key>
+    <value>Выдаліць элемент</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Tags</key>
+    <value>Тэгі</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Collection Page - CollectionApp</key>
+    <value>Старонка калекцыі - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Item Page - CollectionApp</key>
+    <value>Старонка прадмета - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Collections Page - CollectionApp</key>
+    <value>Старонка калекцый - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Page for create a new Item</key>
+    <value>Старонка для стварэння новага элемента</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New collection - CollectionApp</key>
+    <value>Новая калекцыя</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+</root>
