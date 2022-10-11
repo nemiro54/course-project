@@ -5,11 +5,11 @@
 
 <table class="table">
     <tr>
-        <th>Id</th>
-        <th>Email</th>
-        <th>Collecctions</th>
-        <th>Roles</th>
-        <th></th>
+        <th localize-content>Id</th>
+        <th localize-content>Email</th>
+        <th localize-content>Collections</th>
+        <th localize-content>Roles</th>
+        <th localize-content></th>
     </tr>
     @foreach (var user in Model)
     {
@@ -17,10 +17,10 @@
             <td>@user.Id</td>
             <td>@user.Email</td>
             <td>
-                <a asp-controller="PersonalAccount" asp-action="Index" asp-route-userid="@user.Id">View Collections</a>
+                <a asp-controller="PersonalAccount" asp-action="Index" asp-route-userid="@user.Id" localize-content>View Collections</a>
             </td>
             <td>
-                <a class="btn btn-sm btn-outline-primary text-center" asp-controller="Roles" asp-action="Edit" asp-route-userid="@user.Id">Edit Role</a>
+                <a class="btn btn-sm btn-outline-primary text-center" asp-controller="Roles" asp-action="Edit" asp-route-userid="@user.Id" localize-content>Edit Role</a>
             </td>
         </tr>
     }

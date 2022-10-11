@@ -1,3 +1,4 @@
+using System.Configuration;
 using System.Globalization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -5,6 +6,7 @@ using CollectionApp.Data;
 using CollectionApp.LocalizationResources;
 using CollectionApp.Models;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using XLocalizer;
 using XLocalizer.Routing;
 using XLocalizer.Translate;
@@ -41,7 +43,6 @@ builder.Services.Configure<RequestLocalizationOptions>(ops =>
         new("pl"),
         new("be")
     };
-
     ops.SupportedCultures = cultures;
     ops.SupportedUICultures = cultures;
     ops.DefaultRequestCulture = new RequestCulture("en");
@@ -66,6 +67,7 @@ builder.Services.AddRazorPages()
         ops.AutoTranslate = true;
         ops.TranslateFromCulture = "en";
         ops.UseExpressMemoryCache = true;
+        builder.Configuration.GetSection("XLocalizerOptions").Bind(ops);
     });
 
 var app = builder.Build();
@@ -81,6 +83,7 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+app.UseRequestLocalization();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -90,7 +93,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseRequestLocalization();
+// app.UseRequestLocalization();
 
 app.UseEndpoints(endpoints =>
 {
@@ -104,8 +107,9 @@ app.UseEndpoints(endpoints =>
     );
     endpoints.MapControllerRoute(name: "culture-route", pattern: "{culture=en}/{controller=Home}/{action=Index}/{id?}");
     endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapRazorPages();
 });
 
-app.MapRazorPages();
+// app.MapRazorPages();
 
 app.Run();

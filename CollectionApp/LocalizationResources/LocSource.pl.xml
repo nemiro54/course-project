@@ -77,4 +77,189 @@
     <value>Zaloguj się - CollectionApp</value>
     <comment>Created by XLocalizer</comment>
   </data>
+  <data isActive="false">
+    <key>Email</key>
+    <value>Email</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Password</key>
+    <value>Hasło</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>The field {0} must be a string with a minimum length of {2} and a maximum length of {1}.</key>
+    <value>Pole {0} musi być ciągiem o maksymalnej długooci {1} znaków.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Confirm password</key>
+    <value>Potwierdź hasło</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>'{0}' and '{1}' do not match. They should not be different!</key>
+    <value>Nie powinny one zostać usunięte.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Register - CollectionApp</key>
+    <value>Zarejestruj się - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Register</key>
+    <value>Zarejestruj się</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Login</key>
+    <value>Login</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>My Account</key>
+    <value>Moje konto</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>My Collections</key>
+    <value>Kolekcje</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Logout</key>
+    <value>Wylogowanie</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Welcome</key>
+    <value>Witamy</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Log in</key>
+    <value>Zaloguj się</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Use a local account to log in.</key>
+    <value>Zaloguj</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Forgot your password?</key>
+    <value>Zapomniałeś hasła?</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Register as a new user</key>
+    <value>Zarejestrować się jako nowy użytkownik lub</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Resend email confirmation</key>
+    <value>Wyślij ponownie potwierdzenie przez e-mail.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Create a new account.</key>
+    <value>Utwórz nowe konto</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Id</key>
+    <value>Id</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Collections</key>
+    <value>Kolekcje</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>View Collections</key>
+    <value>Zobacz kolekcje</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Edit Role</key>
+    <value>Edycja roli</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>List of Users - CollectionApp</key>
+    <value>Lista użytkowników</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>- CollectionApp</key>
+    <value>- CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Change roles for:</key>
+    <value>Zmień rolę dla:</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Save</key>
+    <value>Zapisz</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>List of Roles</key>
+    <value>Lista ról</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Delete</key>
+    <value>Usuwać</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Add Role</key>
+    <value>Dodaj rolę</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>List of Users</key>
+    <value>Lista użytkowników</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>New Role</key>
+    <value>Nowa rola</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Add</key>
+    <value>Dodaj</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Access Rights</key>
+    <value>Prawa dostępu</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Privacy Policy - CollectionApp</key>
+    <value>Polityka prywatności - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Phone number</key>
+    <value>Numer telefonu</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>The {0} field is not a valid phone number.</key>
+    <value>Pole {0} nie jest prawidłowym numerem telefonu.</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
+  <data isActive="false">
+    <key>Profile - CollectionApp</key>
+    <value>Profil - CollectionApp</value>
+    <comment>Created by XLocalizer</comment>
+  </data>
 </root>
