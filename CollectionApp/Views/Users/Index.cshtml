@@ -1,3 +1,4 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
 @{
     ViewBag.Title = "List of Users";
@@ -5,16 +6,13 @@
 
 <table class="table">
     <tr>
-        <th localize-content>Id</th>
         <th localize-content>Email</th>
         <th localize-content>Collections</th>
         <th localize-content>Roles</th>
-        <th localize-content></th>
     </tr>
     @foreach (var user in Model)
     {
         <tr>
-            <td>@user.Id</td>
             <td>@user.Email</td>
             <td>
                 <a asp-controller="PersonalAccount" asp-action="Index" asp-route-userid="@user.Id" localize-content>View Collections</a>
