@@ -1,13 +1,11 @@
-using System.Configuration;
 using System.Globalization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CollectionApp.Data;
-using CollectionApp.LocalizationResources;
 using CollectionApp.Models;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using XLocalizer;
+using XLocalizer.DB;
 using XLocalizer.Routing;
 using XLocalizer.Translate;
 using XLocalizer.Translate.MyMemoryTranslate;
@@ -19,7 +17,9 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("Connection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(ops =>
-    ops.UseNpgsql(connectionString));
+    ops.UseNpgsql(connectionString),
+    ServiceLifetime.Transient,
+    ServiceLifetime.Transient);
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -60,11 +60,10 @@ builder.Services.AddRazorPages()
     {
         ops.Conventions.Insert(0, new RouteTemplateModelConventionRazorPages());
     })
-    .AddXLocalizer<LocSource, MyMemoryTranslateService>(ops =>
+    .AddXDbLocalizer<ApplicationDbContext, MyMemoryTranslateService>(ops =>
     {
-        ops.ResourcesPath = "LocalizationResources";
-        ops.AutoAddKeys = true;
-        ops.AutoTranslate = true;
+        ops.AutoAddKeys = false;
+        ops.AutoTranslate = false;
         ops.TranslateFromCulture = "en";
         ops.UseExpressMemoryCache = true;
         builder.Configuration.GetSection("XLocalizerOptions").Bind(ops);
