@@ -24,6 +24,8 @@
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.7" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
         <PackageReference Include="XLocalizer" Version="1.0.3" />
+        <PackageReference Include="XLocalizer.DB" Version="1.0.3" />
+        <PackageReference Include="XLocalizer.DB.UI" Version="1.1.0" />
         <PackageReference Include="XLocalizer.TagHelpers" Version="1.1.0" />
         <PackageReference Include="XLocalizer.Translate" Version="1.0.0" />
         <PackageReference Include="XLocalizer.Translate.MyMemoryTranslate" Version="1.0.1" />
@@ -31,6 +33,7 @@
 
     <ItemGroup>
       <Folder Include="Areas\Identity\Pages\Account" />
+      <Folder Include="LocalizationResources" />
     </ItemGroup>
 
     <ItemGroup>
