@@ -29,6 +29,22 @@ public class ApplicationDbContext : IdentityDbContext<User>
             .HasOne(t => t.Culture)
             .WithMany(t => t.Translations as IEnumerable<XDbResource>)
             .OnDelete(DeleteBehavior.Cascade);
+        
+        builder.Entity<Item>()
+            .HasGeneratedTsVectorColumn(
+                p => p.SearchVector,
+                "english",  // Text search config
+                p => new { p.Name })  // Included properties
+            .HasIndex(p => p.SearchVector)
+            .HasMethod("GIN"); // Index method on the search vector (GIN or GIST)
+        
+        builder.Entity<MyCollection>()
+            .HasGeneratedTsVectorColumn(
+                p => p.SearchVector,
+                "english",  // Text search config
+                p => new { p.Name, p.Summary, p.Theme })  // Included properties
+            .HasIndex(p => p.SearchVector)
+            .HasMethod("GIN"); // Index method on the search vector (GIN or GIST)
 
         builder.SeedCultures();
         builder.SeedResourceData();
