@@ -45,20 +45,21 @@ public class MyCollectionsController : Controller
     {
         if (ModelState.IsValid)
         {
-            var user = await _userManager.FindByIdAsync(userId);
+            // var user = await _userManager.FindByIdAsync(userId);
+            var user = await _context.Users.FindAsync(userId);
             MyCollection collection = new MyCollection
             {
                 Name = model.Name,
                 Theme = model.Theme,
                 Summary = model.Summary,
-                UserOwner = user,
-                UserId = user.Id
+                UserOwner = user!,
+                UserId = user!.Id
             };
             _context.MyCollections.Add(collection);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "PersonalAccount", new { userId });
         }
-
+        
         return View(model);
     }
 

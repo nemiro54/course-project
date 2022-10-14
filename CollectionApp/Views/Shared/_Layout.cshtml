@@ -35,7 +35,10 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy" localize-content>Privacy</a>
                     </li>
                 </ul>
-
+                <form class="search" method="get" asp-controller="Search" asp-action="Index">
+                    <input class="form-control mr-2" type="search" localize-att-placeholder="Search" name="searchStr"/>
+                    <button class="btn btn-outline-success" type="submit" localize-content>Search</button>
+                </form>
                 <div class="form-check form-switch">
                     <input type="checkbox" class="form-check-input" id="darkMode"/>
                     <label for="darkMode" class="form-check-label" localize-content>Dark Mode</label>
