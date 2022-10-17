@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/CollectionApp.styles.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="css/darkMode.css"/>
 </head>
 <body>
 <header>
@@ -26,8 +25,8 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-start">
+                <ul class="navbar-nav inline-flex-grow-1">
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" localize-content>Home</a>
                     </li>
@@ -35,7 +34,9 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy" localize-content>Privacy</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" method="get" asp-controller="Search" asp-action="Index">
+            </div>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                <form class="form-inline my-2 my-lg-0" method="get" asp-controller="Search" asp-action="Index" id="searchStr">
                     <input class="form-control mr-sm-2" type="search" localize-att-placeholder="Search" aria-label="Search" name="searchStr"/>
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" localize-content>Search</button>
                 </form>

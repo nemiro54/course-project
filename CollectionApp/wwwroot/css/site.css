@@ -1,16 +1,23 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 :root {
-    --primary-color: #edf2fc;
-    --secondary-color: #212121;
+    --primary-color: rgb(250, 250, 252);
+    --secondary-color: rgb(33, 33, 33);
+    --text-color: rgb(0, 1, 6);
+    --link-color: rgb(159, 118, 87);
+    --link-hover-color: rgb(60, 58, 71);
 }
 
 .dark-mode {
-    --primary-color: #000106;
-    --secondary-color: #fff;
+    --primary-color: rgb(0, 1, 6);
+    --secondary-color: rgb(250, 250, 252);
+    --text-color: rgb(250, 250, 252);
+    --link-color: rgb(159, 118, 87);
+    --link-hover-color: rgb(163, 155, 139);
 }
 
 html {
@@ -28,17 +35,65 @@ html {
 body {
     margin-bottom: 60px;
     background: var(--primary-color);
+    line-height: 2;
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: 3.15rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+h2 {
+    font-size: 2.3rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+
+}
+
+h3 {
+    font-size: 3.1rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 2rem;
 }
 
 .container-fluid {
     background: var(--primary-color);
+    color: var(--text-color);
+    width: 100%;
+    margin: 0 auto;
+}
+
+footer .container {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
 }
 
 footer {
     background: var(--primary-color);
+    color: var(--text-color);
     position: fixed;
     left: 0;
     bottom: 0;
     height: 50px;
     width: 100%;
+}
+
+a {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+form input,
+form textarea,
+form button {
+    font-size: 14px;
 }
