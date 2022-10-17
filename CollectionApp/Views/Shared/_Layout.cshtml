@@ -35,13 +35,12 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy" localize-content>Privacy</a>
                     </li>
                 </ul>
-                <form class="search" method="get" asp-controller="Search" asp-action="Index">
-                    <input class="form-control mr-2" type="search" localize-att-placeholder="Search" name="searchStr"/>
-                    <button class="btn btn-outline-success" type="submit" localize-content>Search</button>
+                <form class="form-inline my-2 my-lg-0" method="get" asp-controller="Search" asp-action="Index">
+                    <input class="form-control mr-sm-2" type="search" localize-att-placeholder="Search" aria-label="Search" name="searchStr"/>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" localize-content>Search</button>
                 </form>
                 <div class="form-check form-switch">
-                    <input type="checkbox" class="form-check-input" id="darkMode"/>
-                    <label for="darkMode" class="form-check-label" localize-content>Dark Mode</label>
+                    <button type="button" class="btn btn-outline-default my-2 my-sm-0" id="dark" onclick="themeToggle()">DARK</button>
                 </div>
                 <div>
                     <language-nav cookie-handler-url="@Url.Action("SetCultureCookie", "Home", new { area = "", cltr = "{0}", returnUrl = "{1}", culture = CultureInfo.CurrentCulture.Name })" redirect-to-url="@(Url.RouteUrl(routeData))">
@@ -66,8 +65,30 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="js/darkMode.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"></script>
+<script>
+    (function() {
+      let onpageLoad = localStorage.getItem("theme") || "";
+      let element = document.body;
+      element.classList.add(onpageLoad);
+      document.getElementById("theme").textContent =
+        localStorage.getItem("theme") || "light";
+    })();
+    
+    function themeToggle() {
+      let element = document.body;
+      element.classList.toggle("dark-mode");
+    
+      let theme = localStorage.getItem("theme");
+      if (theme && theme === "dark-mode") {
+        localStorage.setItem("theme", "");
+      } else {
+        localStorage.setItem("theme", "dark-mode");
+      }
+    
+      document.getElementById("theme").textContent = localStorage.getItem("theme");
+    }
+</script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
