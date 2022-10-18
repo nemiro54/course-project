@@ -14,40 +14,67 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/CollectionApp.styles.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="css/darkMode.css"/>
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <nav class="navbar navbar-light bg-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Users" asp-action="Index" localize-content>Users</a>
-            <a class="navbar-brand" asp-area="" asp-controller="Roles" asp-action="Index" localize-content>Roles</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar" aria-current="page" asp-controller="Home" asp-action="Index" localize-content>Home</a>
+            <form class="d-flex w-50 align-content-center" method="get" asp-controller="Search" asp-action="Index" id="searchStr">
+                <input class="form-control me-2" type="search" localize-att-placeholder="Search" aria-label="Search" name="searchStr"/>
+                <button class="btn" type="submit" localize-content id="btn-search">Search</button>
+            </form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" localize-content>Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy" localize-content>Privacy</a>
-                    </li>
-                </ul>
-                <form class="search" method="get" asp-controller="Search" asp-action="Index">
-                    <input class="form-control mr-2" type="search" localize-att-placeholder="Search" name="searchStr"/>
-                    <button class="btn btn-outline-success" type="submit" localize-content>Search</button>
-                </form>
-                <div class="form-check form-switch">
-                    <input type="checkbox" class="form-check-input" id="darkMode"/>
-                    <label for="darkMode" class="form-check-label" localize-content>Dark Mode</label>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Course Project by U.Niamira</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div>
-                    <language-nav cookie-handler-url="@Url.Action("SetCultureCookie", "Home", new { area = "", cltr = "{0}", returnUrl = "{1}", culture = CultureInfo.CurrentCulture.Name })" redirect-to-url="@(Url.RouteUrl(routeData))">
-                    </language-nav>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <language-nav class="btn btn-lg" cookie-handler-url="@Url.Action("SetCultureCookie", "Home", new { area = "", cltr = "{0}", returnUrl = "{1}", culture = CultureInfo.CurrentCulture.Name })" redirect-to-url="@(Url.RouteUrl(routeData))">
+                            </language-nav>
+                        </li>
+                        @* <li class="nav-item"> *@
+                        @*     <div class="btn btn-lg"> *@
+                        @*         <a aria-expanded="false" aria-haspopup="true" class="btn-sm btn-default border border-secondary dropdown-toggle" data-toggle="dropdown" href="#" id="dropdownLang" role="button">English</a> *@
+                        @*         <div aria-labeledby="dropdownlang" class="dropdown-menu dropdown-menu-right"> *@
+                        @*             <a class="dropdown-item small" href="/set-culture-cookie?cltr=be&amp;returnUrl=/be&amp;culture=en">Belarusian</a> *@
+                        @*             <a class="dropdown-item small" href="/set-culture-cookie?cltr=pl&amp;returnUrl=/pl&amp;culture=en">Polish</a> *@
+                        @*         </div> *@
+                        @*     </div> *@
+                        @* </li> *@
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index" localize-content>Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin Dashboard
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Users" asp-action="Index" localize-content>Users</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Roles" asp-action="Index" localize-content>Roles</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <partial name="_LoginPartial"/>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Privacy" localize-content>Privacy</a>
+                        </li>
+    
+                    </ul>
                 </div>
-                <partial name="_LoginPartial"/>
+                <div class="form-check form-switch d-sm-inline-flex justify-content-center">
+                    <button type="button" class="btn btn-outline-default p-1" id="dark" onclick="themeToggle()">Color theme</button>
+                    @* <input type="checkbox" class="form-check-input" id="dark" onclick="themeToggle()"/> *@
+                    @* <label for="dark" class="form-check-label" localize-content>Dark Mode</label> *@
+                </div>
             </div>
         </div>
     </nav>
@@ -66,8 +93,31 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="js/darkMode.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"></script>
+<script>
+    (function() {
+      let onpageLoad = localStorage.getItem("theme") || "";
+      let element = document.body;
+      element.classList.add(onpageLoad);
+      document.getElementById("theme").textContent =
+        localStorage.getItem("theme") || "light";
+    })();
+    
+    function themeToggle() {
+      let element = document.body;
+      element.classList.toggle("dark-mode");
+      let check = document.querySelector('input[type=checkbox]');
+    
+      let theme = localStorage.getItem("theme");
+      if (theme && theme === "dark-mode") {
+        localStorage.setItem("theme", "");
+      } else {
+        localStorage.setItem("theme", "dark-mode");
+      }
+    
+      document.getElementById("theme").textContent = localStorage.getItem("theme");
+    }
+</script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
