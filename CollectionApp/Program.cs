@@ -2,6 +2,7 @@ using System.Globalization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CollectionApp.Data;
+using CollectionApp.Hubs;
 using CollectionApp.Models;
 using Microsoft.AspNetCore.Localization;
 using XLocalizer;
@@ -69,6 +70,8 @@ builder.Services.AddRazorPages()
         builder.Configuration.GetSection("XLocalizerOptions").Bind(ops);
     });
 
+builder.Services.AddSignalR();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -105,6 +108,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute(name: "culture-route", pattern: "{culture=en}/{controller=Home}/{action=Index}/{id?}");
     endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
     endpoints.MapRazorPages();
+    endpoints.MapHub<CommentHub>("/Items");
 });
 
 app.Run();
