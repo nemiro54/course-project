@@ -29,11 +29,12 @@ public class CommentHub : Hub
         var comment = new Comment
         {
             Message = message,
+            DateTime = DateTime.UtcNow,
             User = user,
             Item = item
         };
         _context.Comments.Add(comment);
         await _context.SaveChangesAsync();
-        await this.Clients.All.SendAsync("Send", message, user.UserName);
+        await Clients.All.SendAsync("Send", message, user.UserName, comment.DateTime.ToLocalTime());
     }
 }

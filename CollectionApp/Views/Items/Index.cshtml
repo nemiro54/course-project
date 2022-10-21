@@ -26,7 +26,8 @@
          @foreach(var comment in ViewBag.Comments)
          {
              <p>
-                 <b>@comment.User.UserName :</b>
+                 <b>@comment.DateTime.ToLocalTime()</b><br/>
+                 <b>@comment.User.UserName:</b>
                  @comment.Message
              </p>
          }
@@ -45,11 +46,16 @@
                 let userName = document.getElementById("userName").value;
                 let userId = document.getElementById("userId").value;
                 let itemId = document.getElementById("itemId").value;
-                hubConnection.on('Send', function (message, userName) {
+                hubConnection.on('Send', function (message, userName, dateTime) {
+                    let dateTimeElem = document.createElement("b");
+                    dateTimeElem.appendChild(document.createTextNode(dateTime));
+
                     let userNameElem = document.createElement("b");
                     userNameElem.appendChild(document.createTextNode(userName + ': '));
 
                     let elem = document.createElement("p");
+                    elem.appendChild(dateTimeElem);
+                    elem.appendChild(document.createElement("br"));
                     elem.appendChild(userNameElem);
                     elem.appendChild(document.createTextNode(message));
 

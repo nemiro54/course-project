@@ -27,7 +27,9 @@ public class ItemsController : Controller
         var item = await _context.Items.FindAsync(itemId);
         var comments = _context.Comments
             .Include(c => c.User)
-            .Where(c => c.Item.Id.Equals(itemId)).ToList();
+            .Where(c => c.Item.Id.Equals(itemId))
+            .OrderByDescending(c => c.DateTime)
+            .ToList();
         ViewBag.Comments = comments;
         return View(item);
     }
