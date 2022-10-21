@@ -3,6 +3,7 @@ using System;
 using CollectionApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using NpgsqlTypes;
@@ -12,9 +13,10 @@ using NpgsqlTypes;
 namespace CollectionApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221021102553_SetTypeMessageByCommentModelToUpperCase")]
+    partial class SetTypeMessageByCommentModelToUpperCase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -423,7 +425,7 @@ namespace CollectionApp.Migrations
                         .IsRequired();
 
                     b.HasOne("CollectionApp.Models.User", "User")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("Item");
@@ -526,8 +528,6 @@ namespace CollectionApp.Migrations
 
             modelBuilder.Entity("CollectionApp.Models.User", b =>
                 {
-                    b.Navigation("Comments");
-
                     b.Navigation("MyCollections");
                 });
 

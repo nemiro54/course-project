@@ -1,10 +1,13 @@
 using CollectionApp.Data;
 using CollectionApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 
 namespace CollectionApp.Hubs;
 
+[Authorize]
 public class CommentHub : Hub
 {
     private readonly UserManager<User> _userManager;
@@ -19,8 +22,18 @@ public class CommentHub : Hub
         _context = context;
     }
     
-    public async Task Send(string message, string userName)
+    public async Task Send(string message, string userId, Guid itemId)
     {
-        await this.Clients.All.SendAsync("Send", message, userName);
+        var user = await _context.Users.FindAsync(userId);
+        var item = await _context.Items.FindAsync(itemId);
+        var comment = new Comment
+        {
+            Message = message,
+            User = user,
+            Item = item
+        };
+        _context.Comments.Add(comment);
+        await _context.SaveChangesAsync();
+        await this.Clients.All.SendAsync("Send", message, user.UserName);
     }
 }

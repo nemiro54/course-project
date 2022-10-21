@@ -1,6 +1,9 @@
 ﻿@using System.Globalization
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @using LazZiya.TagHelpers
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 @{
     var routeData = ViewContext.RouteData.Values;
     routeData["culture"] = "{0}";
@@ -38,31 +41,25 @@
                             <language-nav class="btn btn-lg" cookie-handler-url="@Url.Action("SetCultureCookie", "Home", new { area = "", cltr = "{0}", returnUrl = "{1}", culture = CultureInfo.CurrentCulture.Name })" redirect-to-url="@(Url.RouteUrl(routeData))">
                             </language-nav>
                         </li>
-                        @* <li class="nav-item"> *@
-                        @*     <div class="btn btn-lg"> *@
-                        @*         <a aria-expanded="false" aria-haspopup="true" class="btn-sm btn-default border border-secondary dropdown-toggle" data-toggle="dropdown" href="#" id="dropdownLang" role="button">English</a> *@
-                        @*         <div aria-labeledby="dropdownlang" class="dropdown-menu dropdown-menu-right"> *@
-                        @*             <a class="dropdown-item small" href="/set-culture-cookie?cltr=be&amp;returnUrl=/be&amp;culture=en">Belarusian</a> *@
-                        @*             <a class="dropdown-item small" href="/set-culture-cookie?cltr=pl&amp;returnUrl=/pl&amp;culture=en">Polish</a> *@
-                        @*         </div> *@
-                        @*     </div> *@
-                        @* </li> *@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index" localize-content>Home</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Admin Dashboard
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                                <li>
-                                    <a class="dropdown-item" asp-controller="Users" asp-action="Index" localize-content>Users</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" asp-controller="Roles" asp-action="Index" localize-content>Roles</a>
-                                </li>
-                            </ul>
-                        </li>
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Admin Dashboard
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Users" asp-action="Index" localize-content>Users</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Roles" asp-action="Index" localize-content>Roles</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
                         <partial name="_LoginPartial"/>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Privacy" localize-content>Privacy</a>

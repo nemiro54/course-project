@@ -7,6 +7,7 @@ namespace CollectionApp.Data;
 
 public class ApplicationDbContext : IdentityDbContext<User>
 {
+    public DbSet<User> Users { get; set; }
     public DbSet<MyCollection> MyCollections { get; set; }
     public DbSet<Item> Items { get; set; }
     public DbSet<Comment> Comments { get; set; }
@@ -44,6 +45,14 @@ public class ApplicationDbContext : IdentityDbContext<User>
                 p => p.SearchVector,
                 "english",  // Text search config
                 p => new { p.Name, p.Summary, p.Theme })  // Included properties
+            .HasIndex(p => p.SearchVector)
+            .HasMethod("GIN"); // Index method on the search vector (GIN or GIST)
+        
+        builder.Entity<Comment>()
+            .HasGeneratedTsVectorColumn(
+                p => p.SearchVector,
+                "english",  // Text search config
+                p => new { p.Message })  // Included properties
             .HasIndex(p => p.SearchVector)
             .HasMethod("GIN"); // Index method on the search vector (GIN or GIST)
 

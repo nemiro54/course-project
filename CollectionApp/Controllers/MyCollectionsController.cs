@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CollectionApp.Controllers;
 
-[Authorize]
 public class MyCollectionsController : Controller
 {
     private readonly UserManager<User> _userManager;
@@ -26,10 +25,9 @@ public class MyCollectionsController : Controller
     public async Task<ActionResult> Index(Guid collectionId)
     {
         var collection = await _context.MyCollections.FindAsync(collectionId);
-        if (collection != null)
-        {
-            ViewBag.MyCollection = collection;
-        }
+        var user = await _context.Users.FindAsync(collection.UserId);
+        ViewBag.User = user;
+        ViewBag.MyCollection = collection;
         var items = _context.Items.Where(p => p.MyCollection.Id.Equals(collectionId)).ToList();
         return View(items);
     }
@@ -45,7 +43,6 @@ public class MyCollectionsController : Controller
     {
         if (ModelState.IsValid)
         {
-            // var user = await _userManager.FindByIdAsync(userId);
             var user = await _context.Users.FindAsync(userId);
             MyCollection collection = new MyCollection
             {
