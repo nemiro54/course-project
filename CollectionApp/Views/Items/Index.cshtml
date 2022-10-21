@@ -1,7 +1,71 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 @{
     ViewData["Title"] = "Item Page";
 }
-
 <div class="text-center">
     <h1 class="display-4">@Model.Name</h1>
 </div>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div id="loginBlock">
+        <input id="userId" type="hidden" value="@UserManager.GetUserId(User)"/>
+        <input id="userName" type="hidden" value="@User.Identity.Name"/>
+        <input id="itemId" type="hidden" value="@Model.Id"/>
+        <input type="text" id="message" placeholder="Your comment"/>
+        <input type="button" id="sendBtn" value="Send"/>
+    </div>
+    
+    
+}
+<div id="chatroom">
+     @if (ViewBag.Comments != null)
+     {
+         @foreach(var comment in ViewBag.Comments)
+         {
+             <p>
+                 <b>@comment.DateTime.ToLocalTime()</b><br/>
+                 <b>@comment.User.UserName:</b>
+                 @comment.Message
+             </p>
+         }
+     }
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+<script type="text/javascript">
+        const hubConnection = new signalR.HubConnectionBuilder()
+                    .withUrl("/Items")
+                    .build();
+
+                let userName = document.getElementById("userName").value;
+                let userId = document.getElementById("userId").value;
+                let itemId = document.getElementById("itemId").value;
+                hubConnection.on('Send', function (message, userName, dateTime) {
+                    let dateTimeElem = document.createElement("b");
+                    dateTimeElem.appendChild(document.createTextNode(dateTime));
+
+                    let userNameElem = document.createElement("b");
+                    userNameElem.appendChild(document.createTextNode(userName + ': '));
+
+                    let elem = document.createElement("p");
+                    elem.appendChild(dateTimeElem);
+                    elem.appendChild(document.createElement("br"));
+                    elem.appendChild(userNameElem);
+                    elem.appendChild(document.createTextNode(message));
+
+                    var firstElem = document.getElementById("chatroom").firstChild;
+                    document.getElementById("chatroom").insertBefore(elem, firstElem);
+                });
+                document.getElementById("sendBtn").addEventListener("click", function (e) {
+                    let message = document.getElementById("message").value;
+                    hubConnection.invoke("Send", message, userId, itemId);
+                });
+
+                hubConnection.start();
+</script>

@@ -3,6 +3,7 @@ using System;
 using CollectionApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using NpgsqlTypes;
@@ -12,9 +13,10 @@ using NpgsqlTypes;
 namespace CollectionApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221018160541_AddCommentModel")]
+    partial class AddCommentModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,35 +31,20 @@ namespace CollectionApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("DateTime")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<Guid>("ItemId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<NpgsqlTsVector>("SearchVector")
                         .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("tsvector")
-                        .HasAnnotation("Npgsql:TsVectorConfig", "english")
-                        .HasAnnotation("Npgsql:TsVectorProperties", new[] { "Message" });
+                        .HasColumnType("tsvector");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("message")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ItemId");
-
-                    b.HasIndex("SearchVector");
-
-                    NpgsqlIndexBuilderExtensions.HasMethod(b.HasIndex("SearchVector"), "GIN");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Comments");
                 });
@@ -425,13 +412,7 @@ namespace CollectionApp.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CollectionApp.Models.User", "User")
-                        .WithMany("Comments")
-                        .HasForeignKey("UserId");
-
                     b.Navigation("Item");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CollectionApp.Models.Item", b =>
@@ -529,8 +510,6 @@ namespace CollectionApp.Migrations
 
             modelBuilder.Entity("CollectionApp.Models.User", b =>
                 {
-                    b.Navigation("Comments");
-
                     b.Navigation("MyCollections");
                 });
 

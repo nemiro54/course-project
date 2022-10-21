@@ -3,6 +3,7 @@ using CollectionApp.Models;
 using CollectionApp.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CollectionApp.Controllers;
 
@@ -24,6 +25,12 @@ public class ItemsController : Controller
     public async Task<ActionResult> Index(Guid itemId)
     {
         var item = await _context.Items.FindAsync(itemId);
+        var comments = _context.Comments
+            .Include(c => c.User)
+            .Where(c => c.Item.Id.Equals(itemId))
+            .OrderByDescending(c => c.DateTime)
+            .ToList();
+        ViewBag.Comments = comments;
         return View(item);
     }
 
