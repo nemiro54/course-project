@@ -17,21 +17,19 @@
         <input type="text" id="message" placeholder="Your comment"/>
         <input type="button" id="sendBtn" value="Send"/>
     </div>
-    
-    
 }
 <div id="chatroom">
-     @if (ViewBag.Comments != null)
-     {
-         @foreach(var comment in ViewBag.Comments)
-         {
-             <p>
-                 <b>@comment.DateTime.ToLocalTime()</b><br/>
-                 <b>@comment.User.UserName:</b>
-                 @comment.Message
-             </p>
-         }
-     }
+    @if (ViewBag.Comments != null)
+    {
+        @foreach (var comment in ViewBag.Comments)
+        {
+            <p>
+                <b>@comment.DateTime.ToLocalTime()</b><br/>
+                <b>@comment.User.UserName:</b>
+                @comment.Message
+            </p>
+        }
+    }
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.js"></script>

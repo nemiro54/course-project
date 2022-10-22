@@ -39,6 +39,7 @@ public class MyCollectionsController : Controller
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> Create(CreateMyCollectionViewModel model, string userId)
     {
         if (ModelState.IsValid)
@@ -60,6 +61,7 @@ public class MyCollectionsController : Controller
         return View(model);
     }
 
+    [Authorize]
     public async Task<IActionResult> Delete(Guid[] selectedCollections)
     {
         var userId = (await _context.MyCollections.FindAsync(selectedCollections[0]))!.UserId;
