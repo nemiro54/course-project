@@ -71,6 +71,10 @@ builder.Services.AddRazorPages()
     });
 
 builder.Services.AddSignalR();
+builder.Services.Configure<SecurityStampValidatorOptions>(ops =>
+{
+    ops.ValidationInterval = TimeSpan.Zero;   
+});
 
 var app = builder.Build();
 
