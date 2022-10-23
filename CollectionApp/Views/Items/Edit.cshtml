@@ -1,0 +1,21 @@
+@model CollectionApp.Models.Item
+
+@{
+    ViewData["Title"] = "Edit Collection";
+}
+
+<div class="text-center">
+    <h1 class="display-4" localize-content>Collection Edit Page</h1>
+</div>
+
+<form class="mb-3" method="post" asp-controller="Items" asp-action="Edit" asp-route-itemId="@Model.Id">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="mb-3 w-25">
+        <label class="form-label" asp-for="Name"></label><br/>
+        <input class="form-control" asp-for="Name" value="@Model.Name"/>
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-outline-dark mt-1" localize-content>Save changes</button>
+    </div>
+</form>

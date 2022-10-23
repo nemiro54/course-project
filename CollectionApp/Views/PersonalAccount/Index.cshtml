@@ -11,8 +11,8 @@
 <form id="formCollection">
     @if (SignInManager.IsSignedIn(User) && (User.IsInRole("Admin") || UserManager.GetUserId(User).Equals(ViewBag.User.Id)))
     {
-        <a class="btn btn-outline-primary m-1" asp-controller="MyCollections" asp-action="Create" asp-route-userid="@ViewBag.User.Id" localize-content>Create Collection</a>
-        <button type="submit" class="btn btn-outline-primary m-1" asp-controller="MyCollections" asp-action="Delete" localize-content>Delete Collection</button>
+        <a class="btn btn-outline-success m-1" asp-controller="MyCollections" asp-action="Create" asp-route-userid="@ViewBag.User.Id" localize-content>Create Collection</a>
+        <button type="submit" class="btn btn-outline-danger m-1" asp-controller="MyCollections" asp-action="Delete" localize-content>Delete Collection</button>
     }
     <br/>
     <table class="table table-striped table-hover">
@@ -20,6 +20,7 @@
             <th localize-content>Name</th>
             <th localize-content>Theme</th>
             <th localize-content>Summary</th>
+            <th localize-content>Edit</th>
             <th>
                 <input type="checkbox" name="cb_all">
             </th>
@@ -34,6 +35,9 @@
                     </td>
                     <td>@collection.Theme</td>
                     <td>@collection.Summary</td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-primary text-center" asp-controller="MyCollections" asp-action="Edit" asp-route-collectionId="@collection.Id">Edit</a>
+                    </td>
                     <td>
                         <input type="checkbox" class="collection" name="selectedCollections" value="@collection.Id"/>
                     </td>

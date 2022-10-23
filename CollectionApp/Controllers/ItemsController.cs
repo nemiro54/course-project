@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CollectionApp.Controllers;
 
+[Authorize]
 public class ItemsController : Controller
 {
     private readonly UserManager<User> _userManager;
@@ -23,6 +24,7 @@ public class ItemsController : Controller
     }
 
     [HttpGet]
+    [AllowAnonymous]
     public async Task<ActionResult> Index(Guid itemId)
     {
         var item = await _context.Items.FindAsync(itemId);
@@ -42,7 +44,6 @@ public class ItemsController : Controller
     }
 
     [HttpPost]
-    [Authorize]
     public async Task<IActionResult> Create(ItemCreateViewModel model, Guid collectionId)
     {
         if (ModelState.IsValid)
@@ -50,6 +51,7 @@ public class ItemsController : Controller
             var item = new Item
             {
                 Name = model.Name,
+                Tags = model.Tags,
                 MyCollection = (await _context.MyCollections.FindAsync(collectionId))!,
                 MyCollectionId = collectionId
             };
@@ -61,7 +63,27 @@ public class ItemsController : Controller
         return View(model);
     }
 
-    [Authorize]
+    [HttpGet]
+    public IActionResult Edit(Guid itemId)
+    {
+        var item = _context.Items.Find(itemId);
+        return View(item);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Edit(Item model, Guid itemId)
+    {
+        var item = await _context.Items.FindAsync(itemId);
+        if (item == null)
+        {
+            return NotFound();
+        }
+        item.Name = model.Name;
+        var collectionId = item.MyCollectionId;
+        await _context.SaveChangesAsync();
+        return RedirectToAction("Index", "MyCollections", new { collectionId });
+    }
+
     public async Task<IActionResult> Delete(Guid[] selectedItems)
     {
         var collectionId = (await _context.Items.FindAsync(selectedItems[0]))!.MyCollectionId;
@@ -72,10 +94,8 @@ public class ItemsController : Controller
             {
                 _context.Items.Remove(item);
             }
-
             await _context.SaveChangesAsync();
         }
-
         return RedirectToAction("Index", "MyCollections", new { collectionId });
     }
 }
