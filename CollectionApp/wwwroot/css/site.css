@@ -94,7 +94,13 @@ h3 {
     text-decoration: none;
 }
 
-
+.form-select {
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid rgb(158, 118, 87);
+    font-weight: 700;
+    text-decoration: none;
+}
 
 a {
     background: var(--bg-color);

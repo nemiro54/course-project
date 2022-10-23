@@ -8,14 +8,11 @@ namespace CollectionApp.Controllers;
 public class PersonalAccountController : Controller
 {
     private readonly UserManager<User> _userManager;
-    private readonly SignInManager<User> _signInManager;
     private readonly ApplicationDbContext _context;
     
-    public PersonalAccountController(UserManager<User> userManager, SignInManager<User> signInManager,
-        ApplicationDbContext context)
+    public PersonalAccountController(UserManager<User> userManager, ApplicationDbContext context)
     {
         _userManager = userManager;
-        _signInManager = signInManager;
         _context = context;
     }
     

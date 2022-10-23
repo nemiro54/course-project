@@ -1,24 +1,24 @@
-@model CollectionApp.ViewModels.CreateMyCollectionViewModel
+@model CollectionApp.Models.MyCollection
 
 @{
-    ViewData["Title"] = "New Collection";
+    ViewData["Title"] = "Edit Collection";
 }
 
 <div class="text-center">
-    <h1 class="display-4" localize-content>Page for creating a new collection</h1>
+    <h1 class="display-4" localize-content>Collection Edit Page</h1>
 </div>
 
-<form class="mb-3" method="post" asp-controller="MyCollections" asp-action="Create" asp-route-userId="@ViewBag.Id">
+<form class="mb-3" method="post" asp-controller="MyCollections" asp-action="Edit" asp-route-collectionId="@Model.Id">
     <div asp-validation-summary="ModelOnly"></div>
     <div class="mb-3 w-25">
         <label class="form-label" asp-for="Name"></label><br/>
-        <input class="form-control" asp-for="Name" placeholder="Enter Collection name"/>
+        <input class="form-control" asp-for="Name" value="@Model.Name"/>
         <span asp-validation-for="Name"></span>
     </div>
     <div class="mb-3 w-25">
         <label class="form-label" asp-for="Theme"></label><br/>
         <select class="form-select" asp-for="Theme">
-            <option selected>Choose a theme</option>
+            <option selected>@Model.Theme</option>
             <option value="Books">Books</option>
             <option value="Literature">Literature</option>
             <option value="Cars">Cars</option>
@@ -29,10 +29,10 @@
     </div>
     <div class="mb-3 w-25">
         <label class="form-label" asp-for="Summary"></label><br/>
-        <textarea class="form-control" asp-for="Summary" placeholder="Describe your Collection"></textarea>
+        <textarea class="form-control" asp-for="Summary">@Model.Summary</textarea>
         <span asp-validation-for="Summary"></span>
     </div>
     <div>
-        <button type="submit" class="btn btn-outline-dark mt-1" localize-content>Create</button>
+        <button type="submit" class="btn btn-outline-dark mt-1" localize-content>Save changes</button>
     </div>
 </form>
