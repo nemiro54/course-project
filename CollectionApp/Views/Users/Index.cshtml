@@ -1,25 +1,59 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> UserManager
+@model IEnumerable<User>
 @{
     ViewBag.Title = "List of Users";
 }
-
-<table class="table">
-    <tr>
-        <th localize-content>Email</th>
-        <th localize-content>Collections</th>
-        <th localize-content>Roles</th>
-    </tr>
-    @foreach (var user in Model)
-    {
+<h2 localize-content>List of Users</h2>
+<form id="users" method="post" localize-content>
+    <button type="submit" class="btn btn-outline-danger m-1" asp-controller="Users" asp-action="Delete" localize-content>Delete</button>
+    <button type="submit" class="btn btn-outline-danger m-1" asp-controller="Users" asp-action="Block" localize-content>Block</button>
+    <button type="submit" class="btn btn-outline-success m-1" asp-controller="Users" asp-action="UnBlock" localize-content>UnBlock</button>
+    <table class="table table-striped table-hover">
         <tr>
-            <td>@user.Email</td>
-            <td>
-                <a asp-controller="PersonalAccount" asp-action="Index" asp-route-userid="@user.Id" localize-content>View Collections</a>
-            </td>
-            <td>
-                <a class="btn btn-sm btn-outline-primary text-center" asp-controller="Roles" asp-action="Edit" asp-route-userid="@user.Id" localize-content>Edit Role</a>
-            </td>
+            <th localize-content>Email</th>
+            <th localize-content>Collections</th>
+            <th localize-content>Status</th>
+            <th localize-content>Roles</th>
+            <th>
+                <input type="checkbox" name="cb_all">
+            </th>
         </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>
+                    <a asp-controller="PersonalAccount" asp-action="Index" asp-route-userid="@user.Id" localize-content>View Collections</a>
+                </td>
+                <td>
+                    @if (user.IsBlock)
+                    {
+                        <p class="text-danger">Blocked</p>
+                    }
+                    else
+                    {
+                        <p class="text-success">Active</p>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-outline-primary text-center" asp-controller="Roles" asp-action="Edit" asp-route-userid="@user.Id" localize-content>Edit Role</a>
+                </td>
+                <td>
+                    <input type="checkbox" class="user" name="selectedUsersId" value="@user.Id"/>
+                </td>
+            </tr>
+        }
+    </table>
+</form>
+<script>
+    var f = document.getElementById('users');
+    f.cb_all.onchange = function (e) {
+        var el = e.target || e.srcElement;
+        var qwe = el.form.getElementsByClassName('user');
+        for (var i = 0; i < qwe.length; i++) {
+            qwe[i].checked=!!el.checked;
+        }
     }
-</table>
+</script>

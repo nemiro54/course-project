@@ -10,4 +10,5 @@ public class Item
     public List<Comment> Comments { get; set; }
     public Guid MyCollectionId { get; set; }
     public MyCollection MyCollection { get; set; }
+    public List<Tag> Tags { get; set; }
 }

@@ -1,6 +1,7 @@
 using CollectionApp.Data;
 using CollectionApp.Models;
 using CollectionApp.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +42,7 @@ public class ItemsController : Controller
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> Create(ItemCreateViewModel model, Guid collectionId)
     {
         if (ModelState.IsValid)
@@ -59,6 +61,7 @@ public class ItemsController : Controller
         return View(model);
     }
 
+    [Authorize]
     public async Task<IActionResult> Delete(Guid[] selectedItems)
     {
         var collectionId = (await _context.Items.FindAsync(selectedItems[0]))!.MyCollectionId;
