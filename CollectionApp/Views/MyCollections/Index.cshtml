@@ -21,6 +21,7 @@
             <th localize-content>Name</th>
             <th localize-content>Summary</th>
             <th localize-content>Tags</th>
+            <th localize-content>Edit</th>
             <th>
                 <input type="checkbox" name="cb_all">
             </th>
@@ -35,6 +36,9 @@
                     </td>
                     <td>Summary</td>
                     <td>Tags</td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-primary text-center" asp-controller="Items" asp-action="Edit" asp-route-itemId="@item.Id">Edit</a>
+                    </td>
                     <td>
                         <input type="checkbox" class="item" name="selectedItems" value="@item.Id"/>
                     </td>

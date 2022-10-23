@@ -8,14 +8,25 @@
     <h1 class="display-4" localize-content>Page for create a new Item</h1>
 </div>
 
-<form method="post" asp-controller="Items" asp-action="Create" asp-route-collectionId="@ViewBag.Id">
+<form class="mb-3" method="post" asp-controller="Items" asp-action="Create" asp-route-collectionId="@ViewBag.Id">
     <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <label asp-for="Name"></label><br/>
-        <input asp-for="Name"/>
+    <div class="mb-3 w-25">
+        <label class="form-label" asp-for="Name"></label><br/>
+        <input class="form-control" asp-for="Name" placeholder="Enter Item name"/>
         <span asp-validation-for="Name"></span>
     </div>
+    @* <div class="mb-3 w-25"> *@
+    @*     <label class="form-label" asp-for="Tags"></label><br/> *@
+    @*     <select class="form-select" asp-for="Tags"> *@
+    @*         <option selected="">Choose a tag</option> *@
+    @*         <option value="book">book</option> *@
+    @*         <option value="fantastic">fantastic</option> *@
+    @*         <option value="potter">potter</option> *@
+    @*         <option value="rowling">rowling</option> *@
+    @*     </select> *@
+    @*     <span asp-validation-for="Tags"></span> *@
+    @* </div> *@
     <div>
-        <button type="submit" class="btn btn-outline-primary mt-1" localize-content>Create</button>
+        <button type="submit" class="btn btn-outline-dark mt-1" localize-content>Create</button>
     </div>
 </form>

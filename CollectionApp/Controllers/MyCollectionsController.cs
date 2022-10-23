@@ -69,12 +69,13 @@ public class MyCollectionsController : Controller
     public async Task<IActionResult> Edit(MyCollection model, Guid collectionId)
     {
         var collection = await _context.MyCollections.FindAsync(collectionId);
-        if (collection != null)
+        if (collection == null)
         {
-            collection.Name = model.Name;
-            collection.Theme = model.Theme;
-            collection.Summary = model.Summary;
+            return NotFound();
         }
+        collection.Name = model.Name;
+        collection.Theme = model.Theme;
+        collection.Summary = model.Summary;
         await _context.SaveChangesAsync();
         return RedirectToAction("Index", "PersonalAccount", new { collection.UserId });
     }
