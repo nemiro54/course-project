@@ -112,7 +112,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute(name: "culture-route", pattern: "{culture=en}/{controller=Home}/{action=Index}/{id?}");
     endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
     endpoints.MapRazorPages();
-    endpoints.MapHub<CommentHub>("/Items");
+    endpoints.MapHub<ItemHub>("/Items");
 });
 
 app.Run();

@@ -8,17 +8,12 @@ using Microsoft.EntityFrameworkCore;
 namespace CollectionApp.Hubs;
 
 [Authorize]
-public class CommentHub : Hub
+public class ItemHub : Hub
 {
-    private readonly UserManager<User> _userManager;
-    private readonly SignInManager<User> _signInManager;
     private readonly ApplicationDbContext _context;
     
-    public CommentHub(UserManager<User> userManager, SignInManager<User> signInManager,
-        ApplicationDbContext context)
+    public ItemHub(ApplicationDbContext context)
     {
-        _userManager = userManager;
-        _signInManager = signInManager;
         _context = context;
     }
     
@@ -36,5 +31,31 @@ public class CommentHub : Hub
         _context.Comments.Add(comment);
         await _context.SaveChangesAsync();
         await Clients.All.SendAsync("Send", message, user.UserName, comment.DateTime.ToLocalTime());
+    }
+    
+    public async Task Like(string userId, Guid itemId)
+    {
+        var isLiked = _context.Likes
+            .Any(l => l.ItemId.Equals(itemId) && l.UserId.Equals(userId));
+        Like like;
+        if (isLiked)
+        {
+            like = _context.Likes.First(l => l.ItemId.Equals(itemId) && l.UserId.Equals(userId));
+            _context.Likes.Remove(like);
+        }
+        else
+        {
+            like = new Like
+            {
+                UserId = userId,
+                ItemId = itemId
+            };
+            _context.Likes.Add(like);
+        }
+
+        await _context.SaveChangesAsync();
+        var countLikes = _context.Likes
+            .Count(l => l.ItemId.Equals(itemId));
+        await Clients.All.SendAsync("Like", countLikes);
     }
 }
