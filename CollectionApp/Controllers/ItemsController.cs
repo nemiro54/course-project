@@ -28,12 +28,15 @@ public class ItemsController : Controller
     public async Task<ActionResult> Index(Guid itemId)
     {
         var item = await _context.Items.FindAsync(itemId);
+        var countLikes = _context.Likes
+            .Count(l => l.ItemId.Equals(itemId));
         var comments = _context.Comments
             .Include(c => c.User)
             .Where(c => c.Item.Id.Equals(itemId))
             .OrderByDescending(c => c.DateTime)
             .ToList();
         ViewBag.Comments = comments;
+        ViewBag.CountLikes = countLikes;
         return View(item);
     }
 

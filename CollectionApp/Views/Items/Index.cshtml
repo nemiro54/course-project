@@ -7,13 +7,17 @@
 <div class="text-center">
     <h1 class="display-4">@Model.Name</h1>
 </div>
-
+<span id="countLikes">@ViewBag.CountLikes</span>
 @if (SignInManager.IsSignedIn(User))
 {
+    <input id="userId" type="hidden" value="@UserManager.GetUserId(User)"/>
+    <input id="userName" type="hidden" value="@User.Identity.Name"/>
+    <input id="itemId" type="hidden" value="@Model.Id"/>
+    <div>
+        
+        <button class="btn btn-outline-success m-1" id="likeBtn">like</button>
+    </div>
     <div id="loginBlock">
-        <input id="userId" type="hidden" value="@UserManager.GetUserId(User)"/>
-        <input id="userName" type="hidden" value="@User.Identity.Name"/>
-        <input id="itemId" type="hidden" value="@Model.Id"/>
         <input type="text" id="message" placeholder="Your comment"/>
         <input type="button" id="sendBtn" value="Send"/>
     </div>
@@ -40,10 +44,13 @@
         const hubConnection = new signalR.HubConnectionBuilder()
                     .withUrl("/Items")
                     .build();
+        
+                hubConnection.serverTimeoutInMilliseconds = 1000 * 60 * 10;
 
                 let userName = document.getElementById("userName").value;
                 let userId = document.getElementById("userId").value;
                 let itemId = document.getElementById("itemId").value;
+                
                 hubConnection.on('Send', function (message, userName, dateTime) {
                     let dateTimeElem = document.createElement("b");
                     dateTimeElem.appendChild(document.createTextNode(dateTime));
@@ -57,13 +64,23 @@
                     elem.appendChild(userNameElem);
                     elem.appendChild(document.createTextNode(message));
 
-                    var firstElem = document.getElementById("chatroom").firstChild;
+                    let firstElem = document.getElementById("chatroom").firstChild;
                     document.getElementById("chatroom").insertBefore(elem, firstElem);
                 });
+                
                 document.getElementById("sendBtn").addEventListener("click", function (e) {
                     let message = document.getElementById("message").value;
                     hubConnection.invoke("Send", message, userId, itemId);
                 });
-
+                
+                hubConnection.on('Like', function (countLikes) {
+                    let currCountLikes = document.getElementById("countLikes");
+                    currCountLikes.textContent = countLikes;
+                });
+                
+                document.getElementById("likeBtn").addEventListener("click", function (e) {
+                    hubConnection.invoke("Like", userId, itemId);
+                });
+                
                 hubConnection.start();
 </script>
