@@ -1,13 +1,10 @@
 @model CollectionApp.ViewModels.CreateMyCollectionViewModel
-
 @{
     ViewData["Title"] = "New Collection";
 }
-
 <div class="text-center">
     <h1 class="display-4" localize-content>Page for creating a new collection</h1>
 </div>
-
 <form class="mb-3" method="post" asp-controller="MyCollections" asp-action="Create" asp-route-userId="@ViewBag.Id">
     <div asp-validation-summary="ModelOnly"></div>
     <div class="mb-3 w-25">
