@@ -13,8 +13,8 @@
 <form id="formItems" method="post">
     @if (SignInManager.IsSignedIn(User) && (User.IsInRole("Admin") || UserManager.GetUserId(User).Equals(ViewBag.User.Id)))
     {
-        <a class="btn btn-outline-primary m-1" asp-controller="Items" asp-action="Create" asp-route-collectionId="@ViewBag.MyCollection.Id" localize-content>Create Item</a>
-        <button type="submit" class="btn btn-outline-primary m-1" asp-controller="Items" asp-action="Delete" localize-content>Delete Item</button>
+        <a class="btn btn-outline-success m-1" asp-controller="Items" asp-action="Create" asp-route-collectionId="@ViewBag.MyCollection.Id" localize-content>Create Item</a>
+        <button type="submit" class="btn btn-outline-danger m-1" asp-controller="Items" asp-action="Delete" localize-content>Delete Item</button>
         
     }
     <table class="table table-striped table-hover">
@@ -38,7 +38,7 @@
                     <td>Summary</td>
                     <td>Tags</td>
                     <td>
-                        <a class="btn btn-sm btn-outline-primary text-center" asp-controller="Items" asp-action="Edit" asp-route-itemId="@item.Id">Edit</a>
+                        <a class="btn btn-sm btn-outline-primary text-center" asp-controller="Items" asp-action="Edit" asp-route-itemId="@item.Id" localize-content>Edit</a>
                     </td>
                     <td>
                         <input type="checkbox" class="item" name="selectedItems" value="@item.Id"/>

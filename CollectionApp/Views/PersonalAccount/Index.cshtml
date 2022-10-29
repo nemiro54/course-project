@@ -2,6 +2,8 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 @{
     ViewData["Title"] = "Collections Page";
 }
@@ -15,7 +17,8 @@
         <button type="submit" class="btn btn-outline-danger m-1" asp-controller="MyCollections" asp-action="Delete" localize-content>Delete Collection</button>
     }
     <br/>
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover" id="collectionsTable">
+        <thead>
         <tr>
             <th localize-content>Name</th>
             <th localize-content>Theme</th>
@@ -25,6 +28,8 @@
                 <input type="checkbox" name="cb_all">
             </th>
         </tr>
+        </thead>
+        <tbody>
         @if (Model != null)
         {
             @foreach (var collection in Model)
@@ -44,9 +49,9 @@
                 </tr>
             }
         }
+        </tbody>
     </table>
 </form>
-
 <script>
     var f = document.getElementById('formCollection');
     f.cb_all.onchange = function (e) {
@@ -56,4 +61,8 @@
             qwe[i].checked=!!el.checked;
         }
     }
+    
+    $(document).ready( function () {
+        $('#collectionsTable').DataTable();
+    } );
 </script>
