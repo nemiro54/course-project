@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "New Item";
 }
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <div class="text-center">
     <h1 class="display-4" localize-content>Page for create a new Item</h1>
@@ -15,14 +15,12 @@
         <span asp-validation-for="Name"></span>
     </div>
     <div class="mb-3 w-25">
-        <label class="form-label" asp-for="Tags"></label><br/>
-        <select class="multiple-select" asp-for="Tags" multiple="multiple">
-            <option value="book">book</option>
-            <option value="fantastic">fantastic</option>
-            <option value="potter">potter</option>
-            <option value="rowling">rowling</option>
+        <select class="form-control multiple-select" asp-for="SelectedTags" multiple="multiple">
+            @foreach (var tag in Model.SelectedTags)
+            {
+                <option class="" value="@tag.Name">@tag.Name</option>
+            }
         </select>
-        <span asp-validation-for="Tags"></span>
     </div>
     <div>
         <button type="submit" class="btn btn-outline-dark mt-1" localize-content>Create</button>
@@ -30,6 +28,9 @@
 </form>
 <script>
     $(document).ready(function() {
-        $('.multiple-select').select2();
+        $('.multiple-select').select2({
+            tags: true,
+            placeholder: "Choose tags"
+        });
     });
 </script>

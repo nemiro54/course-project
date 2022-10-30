@@ -157,18 +157,13 @@ namespace CollectionApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("ItemId")
-                        .HasColumnType("uuid");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ItemId");
-
-                    b.ToTable("Tag");
+                    b.ToTable("Tags");
                 });
 
             modelBuilder.Entity("CollectionApp.Models.User", b =>
@@ -236,6 +231,21 @@ namespace CollectionApp.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("ItemTag", b =>
+                {
+                    b.Property<Guid>("ItemsId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("TagsId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("ItemsId", "TagsId");
+
+                    b.HasIndex("TagsId");
+
+                    b.ToTable("ItemTag");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -497,15 +507,19 @@ namespace CollectionApp.Migrations
                     b.Navigation("UserOwner");
                 });
 
-            modelBuilder.Entity("CollectionApp.Models.Tag", b =>
+            modelBuilder.Entity("ItemTag", b =>
                 {
-                    b.HasOne("CollectionApp.Models.Item", "Item")
-                        .WithMany("Tags")
-                        .HasForeignKey("ItemId")
+                    b.HasOne("CollectionApp.Models.Item", null)
+                        .WithMany()
+                        .HasForeignKey("ItemsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Item");
+                    b.HasOne("CollectionApp.Models.Tag", null)
+                        .WithMany()
+                        .HasForeignKey("TagsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -572,8 +586,6 @@ namespace CollectionApp.Migrations
             modelBuilder.Entity("CollectionApp.Models.Item", b =>
                 {
                     b.Navigation("Comments");
-
-                    b.Navigation("Tags");
                 });
 
             modelBuilder.Entity("CollectionApp.Models.MyCollection", b =>

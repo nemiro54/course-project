@@ -12,6 +12,7 @@ public class ApplicationDbContext : IdentityDbContext<User>
     public DbSet<Item> Items { get; set; }
     public DbSet<Comment> Comments { get; set; }
     public DbSet<Like> Likes { get; set; }
+    public DbSet<Tag> Tags { get; set; }
     public DbSet<XDbCulture> XDbCultures { get; set; }
     public DbSet<XDbResource> XDbResources { get; set; }
 

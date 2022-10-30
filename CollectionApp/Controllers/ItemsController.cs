@@ -1,9 +1,11 @@
+using System.Collections;
 using CollectionApp.Data;
 using CollectionApp.Models;
 using CollectionApp.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace CollectionApp.Controllers;
@@ -42,8 +44,14 @@ public class ItemsController : Controller
 
     public IActionResult Create(string collectionId)
     {
+        var tags = _context.Tags.ToList();
+        var itemCreateViewModel = new ItemCreateViewModel()
+        {
+            SelectedTags = tags
+        };
         ViewBag.Id = collectionId;
-        return View();
+        
+        return View(itemCreateViewModel);
     }
 
     [HttpPost]
@@ -51,10 +59,13 @@ public class ItemsController : Controller
     {
         if (ModelState.IsValid)
         {
+            var tags = model.SelectedTags;
+                // Select(t => new Tag { Name = t }).ToList();
+            
             var item = new Item
             {
                 Name = model.Name,
-                Tags = model.Tags,
+                Tags = tags,
                 MyCollection = (await _context.MyCollections.FindAsync(collectionId))!,
                 MyCollectionId = collectionId
             };
@@ -81,6 +92,7 @@ public class ItemsController : Controller
         {
             return NotFound();
         }
+
         item.Name = model.Name;
         var collectionId = item.MyCollectionId;
         await _context.SaveChangesAsync();
@@ -97,8 +109,10 @@ public class ItemsController : Controller
             {
                 _context.Items.Remove(item);
             }
+
             await _context.SaveChangesAsync();
         }
+
         return RedirectToAction("Index", "MyCollections", new { collectionId });
     }
 }
