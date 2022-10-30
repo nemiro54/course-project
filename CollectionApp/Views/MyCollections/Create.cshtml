@@ -1,13 +1,10 @@
 @model CollectionApp.ViewModels.CreateMyCollectionViewModel
-
 @{
     ViewData["Title"] = "New Collection";
 }
-
 <div class="text-center">
     <h1 class="display-4" localize-content>Page for creating a new collection</h1>
 </div>
-
 <form class="mb-3" method="post" asp-controller="MyCollections" asp-action="Create" asp-route-userId="@ViewBag.Id">
     <div asp-validation-summary="ModelOnly"></div>
     <div class="mb-3 w-25">
@@ -18,7 +15,7 @@
     <div class="mb-3 w-25">
         <label class="form-label" asp-for="Theme"></label><br/>
         <select class="form-select" asp-for="Theme">
-            <option selected>Choose a theme</option>
+            <option selected disabled="disabled">Choose a theme</option>
             <option value="Books">Books</option>
             <option value="Literature">Literature</option>
             <option value="Cars">Cars</option>

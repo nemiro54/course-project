@@ -1,21 +1,52 @@
-@model CollectionApp.Models.Item
+@model CollectionApp.ViewModels.ItemEditViewModel
 
 @{
     ViewData["Title"] = "Edit Collection";
 }
-
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <div class="text-center">
     <h1 class="display-4" localize-content>Collection Edit Page</h1>
 </div>
 
-<form class="mb-3" method="post" asp-controller="Items" asp-action="Edit" asp-route-itemId="@Model.Id">
+<form class="mb-3" method="post" asp-controller="Items" asp-action="Edit" asp-route-itemId="@ViewBag.Item.Id">
     <div asp-validation-summary="ModelOnly"></div>
     <div class="mb-3 w-25">
         <label class="form-label" asp-for="Name"></label><br/>
-        <input class="form-control" asp-for="Name" value="@Model.Name"/>
+        <input class="form-control" asp-for="Name" value="@ViewBag.Item.Name"/>
         <span asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3 w-25">
+        <select class="form-control multiple-select" asp-for="SelectedTags" multiple="multiple">
+            @if (ViewBag.Tags.Length != 0)
+            {
+                @if (ViewBag.Item.Tags.Count != 0)
+                {
+                    @foreach (var tag in ViewBag.Item.Tags)
+                    {
+                        <option selected value="@tag.Name">@tag.Name</option>
+                    }
+                }
+                @foreach (var tag in ViewBag.Tags)
+                {
+                    <option value="@tag">@tag</option>
+                }
+            }
+            else
+            {
+                <option></option>
+            }
+        </select>
     </div>
     <div>
         <button type="submit" class="btn btn-outline-dark mt-1" localize-content>Save changes</button>
     </div>
 </form>
+<script>
+    $(document).ready(function() {
+        $('.multiple-select').select2({
+            tags: true,
+            placeholder: "Choose tags"
+        });
+    });
+</script>

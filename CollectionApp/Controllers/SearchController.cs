@@ -19,6 +19,7 @@ public class SearchController : Controller
     {
         List<Item> items;
         List<MyCollection> collections;
+        List<Comment> comments;
 
         if (!string.IsNullOrEmpty(searchStr))
         {
@@ -26,6 +27,9 @@ public class SearchController : Controller
                 .Where(p => p.SearchVector.Matches(searchStr))
                 .ToList();
             collections = _context.MyCollections
+                .Where(p => p.SearchVector.Matches(searchStr))
+                .ToList();
+            comments = _context.Comments
                 .Where(p => p.SearchVector.Matches(searchStr))
                 .ToList();
         }

@@ -1,10 +1,8 @@
-using System.ComponentModel.DataAnnotations;
-using CollectionApp.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Build.Framework;
 
 namespace CollectionApp.ViewModels;
 
-public class ItemCreateViewModel
+public class ItemEditViewModel
 {
     [Required]
     public string Name { get; set; }
