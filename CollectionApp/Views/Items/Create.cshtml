@@ -16,9 +16,16 @@
     </div>
     <div class="mb-3 w-25">
         <select class="form-control multiple-select" asp-for="SelectedTags" multiple="multiple">
-            @foreach (var tag in Model.SelectedTags)
+            @if (ViewBag.Tags.Length != 0)
             {
-                <option class="" value="@tag.Name">@tag.Name</option>
+                @foreach (var tag in ViewBag.Tags)
+                {
+                    <option value="@tag">@tag</option>
+                }
+            }
+            else
+            {
+                <option></option>
             }
         </select>
     </div>

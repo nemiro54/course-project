@@ -8,6 +8,6 @@ public class ItemCreateViewModel
 {
     [Required]
     public string Name { get; set; }
-    
-    public List<Tag> SelectedTags { get; set; }
+
+    public string[] SelectedTags { get; set; } = Array.Empty<string>();
 }

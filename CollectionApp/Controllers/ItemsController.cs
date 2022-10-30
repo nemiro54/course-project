@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Configuration;
+using Tag = CollectionApp.Models.Tag;
 
 namespace CollectionApp.Controllers;
 
@@ -44,14 +46,20 @@ public class ItemsController : Controller
 
     public IActionResult Create(string collectionId)
     {
-        var tags = _context.Tags.ToList();
-        var itemCreateViewModel = new ItemCreateViewModel()
+        var tagList = _context.Tags.ToList();
+        var tagsString = new string[tagList.Count];
+        if (tagList.Capacity != 0)
         {
-            SelectedTags = tags
-        };
+            for (int i = 0; i < tagsString.Length; i++)
+            {
+                tagsString[i] = tagList[i].Name;
+            }
+        }
+
+        ViewBag.Tags = tagsString;
         ViewBag.Id = collectionId;
-        
-        return View(itemCreateViewModel);
+
+        return View();
     }
 
     [HttpPost]
@@ -59,16 +67,43 @@ public class ItemsController : Controller
     {
         if (ModelState.IsValid)
         {
-            var tags = model.SelectedTags;
-                // Select(t => new Tag { Name = t }).ToList();
-            
+            var existTagsListFromDb = _context.Tags.ToList();
+            var arrTagsFromModel = model.SelectedTags;
+            var tagsListFromModel = new List<Tag>(arrTagsFromModel.Length);
+            var tagsToAddToDb = new List<Tag>();
+                
+            foreach (var tagName in arrTagsFromModel)
+            {
+                if (existTagsListFromDb.Any(t => t.Name.Equals(tagName)))
+                {
+                    tagsListFromModel.Add(existTagsListFromDb.First(t => t.Name.Equals(tagName)));
+                }
+                else
+                {
+                    var tag = new Tag() { Name = tagName };
+                    tagsListFromModel.Add(tag);
+                    tagsToAddToDb.Add(tag);
+                }
+            }
+
             var item = new Item
             {
                 Name = model.Name,
-                Tags = tags,
+                Tags = tagsListFromModel,
                 MyCollection = (await _context.MyCollections.FindAsync(collectionId))!,
                 MyCollectionId = collectionId
             };
+            
+            foreach (var tag in tagsListFromModel)
+            {
+                tag.Items.Add(item);
+            }
+            
+            foreach (var tag in tagsToAddToDb)
+            {
+                _context.Tags.Add(tag);
+            }
+            
             _context.Items.Add(item);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "MyCollections", new { collectionId });
