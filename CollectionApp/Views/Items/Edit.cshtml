@@ -15,6 +15,21 @@
         <input class="form-control" asp-for="Name" value="@Model.Name"/>
         <span asp-validation-for="Name"></span>
     </div>
+    @* <div class="mb-3 w-25"> *@
+    @*         <select class="form-control multiple-select" asp-for="SelectedTags" multiple="multiple"> *@
+    @*             @if (ViewBag.Tags.Length != 0) *@
+    @*             { *@
+    @*                 @foreach (var tag in ViewBag.Tags) *@
+    @*                 { *@
+    @*                     <option value="@tag">@tag</option> *@
+    @*                 } *@
+    @*             } *@
+    @*             else *@
+    @*             { *@
+    @*                 <option></option> *@
+    @*             } *@
+    @*         </select> *@
+    @*     </div> *@
     <div>
         <button type="submit" class="btn btn-outline-dark mt-1" localize-content>Save changes</button>
     </div>
