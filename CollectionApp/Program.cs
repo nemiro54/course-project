@@ -66,7 +66,7 @@ builder.Services.AddRazorPages()
         ops.AutoAddKeys = false;
         ops.AutoTranslate = false;
         ops.TranslateFromCulture = "en";
-        ops.UseExpressMemoryCache = true;
+        ops.UseExpressMemoryCache = false;
         builder.Configuration.GetSection("XLocalizerOptions").Bind(ops);
     });
 

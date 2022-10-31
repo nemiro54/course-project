@@ -89,6 +89,7 @@ public class ItemsController : Controller
             var item = new Item
             {
                 Name = model.Name,
+                Description = model.Description,
                 Tags = tagsListFromModel,
                 MyCollection = _context.MyCollections.First(c => c.Id.Equals(collectionId)),
                 MyCollectionId = collectionId
@@ -159,6 +160,7 @@ public class ItemsController : Controller
         _context.Tags.AddRange(tagsToAddToDb);
 
         item.Name = model.Name;
+        item.Description = model.Description;
         item.Tags = tagsListFromModel;
         
         var collectionId = item.MyCollectionId;

@@ -36,8 +36,9 @@ html {
 }
 
 body {
-    margin-top: 70px;
-    margin-bottom: 60px;
+    height: 100vh;
+    margin-top: 65px;
+    margin-bottom: auto;
     background: var(--bg-color);
     line-height: 2;
     color: var(--text-color);
@@ -102,6 +103,10 @@ h3 {
 /*    text-decoration: none;*/
 /*}*/
 
+.table, .table-hover {
+    color: var(--text-color);
+}
+
 a {
     /*background: var(--bg-color);*/
     text-decoration: none;
@@ -111,6 +116,10 @@ a {
 
 a:hover {
     color: var(--link-hover-color);
+}
+
+.navbar {
+    background: var(--bg-color);
 }
 
 #btn-search {
