@@ -151,18 +151,12 @@ public class ItemsController : Controller
                 tagsToAddToDb.Add(tag);
             }
         }
-
-        var tagsListFromItem = item.Tags;
         
         foreach (var tag in tagsListFromModel)
         {
             tag.Items.Add(item);
         }
-            
-        foreach (var tag in tagsToAddToDb)
-        {
-            _context.Tags.Add(tag);
-        }
+        _context.Tags.AddRange(tagsToAddToDb);
 
         item.Name = model.Name;
         item.Tags = tagsListFromModel;

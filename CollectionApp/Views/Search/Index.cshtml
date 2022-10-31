@@ -2,19 +2,19 @@
     <tr>
         <th localize-content>Result</th>
     </tr>
+    @foreach (var collection in ViewBag.Collections)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="MyCollections" asp-action="Index" asp-route-collectionId="@collection.Id">@collection.Name</a>
+                </td>
+            </tr>
+        }
     @foreach (var item in ViewBag.Items)
     {
         <tr>
             <td>
                 <a asp-controller="Items" asp-action="Index" asp-route-itemId="@item.Id">@item.Name</a>
-            </td>
-        </tr>
-    }
-    @foreach (var collection in ViewBag.Collections)
-    {
-        <tr>
-            <td>
-                <a asp-controller="MyCollections" asp-action="Index" asp-route-collectionId="@collection.Id">@collection.Name</a>
             </td>
         </tr>
     }
