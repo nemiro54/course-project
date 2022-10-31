@@ -7,6 +7,9 @@
 <div class="text-center">
     <h1 class="display-4">@Model.Name</h1>
 </div>
+<div>
+    <p>@Model.Description</p>
+</div>
 <span id="countLikes">@ViewBag.CountLikes</span>
 @if (SignInManager.IsSignedIn(User))
 {

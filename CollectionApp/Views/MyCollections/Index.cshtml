@@ -40,8 +40,8 @@
                     <td>
                         <a asp-controller="Items" asp-action="Index" asp-route-itemId="@item.Id">@item.Name</a>
                     </td>
-                    <td>Summary</td>
-                    <td>Tags</td>
+                    <td>@item.Description</td>
+                    <td></td>
                     <td>
                         <a class="btn btn-sm btn-outline-primary text-center" asp-controller="Items" asp-action="Edit" asp-route-itemId="@item.Id" localize-content>Edit</a>
                     </td>

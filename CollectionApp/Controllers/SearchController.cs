@@ -19,7 +19,6 @@ public class SearchController : Controller
     {
         List<Item> items;
         List<MyCollection> collections;
-        List<Comment> comments;
 
         if (!string.IsNullOrEmpty(searchStr))
         {
@@ -29,9 +28,20 @@ public class SearchController : Controller
             collections = _context.MyCollections
                 .Where(p => p.SearchVector.Matches(searchStr))
                 .ToList();
-            comments = _context.Comments
+            var comments = _context.Comments
                 .Where(p => p.SearchVector.Matches(searchStr))
                 .ToList();
+            
+            foreach (var comment in comments)
+            {
+                var itemId = comment.ItemId;
+                
+                if (!items.Any(i => i.Id.Equals(itemId)))
+                {
+                    items.Add(_context.Items.First(i => i.Id.Equals(itemId)));
+                }
+            }
+            
         }
         else
         {
